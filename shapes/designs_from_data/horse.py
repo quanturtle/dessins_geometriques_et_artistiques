@@ -1,26 +1,8 @@
 import turtle
-import math
 
 
-def setup_canvas(NP: int = 480):
-    """
-    Sets a window of size NP x NP in 'turtle' coordinates.
-    """
-    turtle.setup(width=NP, height=NP)
-    turtle.setworldcoordinates(0, 0, NP, NP)
-    turtle.speed("fastest")
-    turtle.penup()
-    turtle.home()
-    turtle.pendown()
-
-
-def draw_cheval():
-    """
-    Python turtle version of the BASIC 'CHEVAL' program.
-    Replicates reading logic and draws lines accordingly.
-    """
-
-    data = [
+def draw_horse(NP: int = 480):
+    DATA = [
         1000, 10,10, 8,12, 9,16, 12,17, 13,18, 14,20,
         1000, 13,18, 12,19, 9,21, 9,20, 10,19, 9, 17, 7,20, 8,22, 12,22,
         1000, 12,20, 12,22, 13,26, 16,31, 18,31, 19,32,
@@ -50,45 +32,33 @@ def draw_cheval():
         2000
     ]
 
-    NP = 480
-    i  = 0           # index into data list
-    B1 = 0           # in BASIC, used to track "move" vs "draw"
+    i  = 0
+    B1 = 0
     
     while True:
-        A = data[i]
+        A = DATA[i]
         i += 1
 
-        # If it's 2000 => stop reading
         if A == 2000:
             break
 
-        # If it's 1000 => next pair is a move-to
         if A == 1000:
             B1 = 0
-            A = data[i]; i += 1  # next X
-            B = data[i]; i += 1  # next Y
+            A = DATA[i]; i += 1
+            B = DATA[i]; i += 1
+
         else:
-            # otherwise, 'A' is the X coordinate, read next for Y
-            B = data[i]
+            B = DATA[i]
             i += 1
 
-        # Scale as X% = NP*A/40, Y% = NP*B/40
         X = NP * A / 40.0
         Y = NP * B / 40.0
 
         if B1 == 0:
-            # "TM" in BASIC => Pen up + Move
             turtle.penup()
             turtle.goto(X, Y)
             B1 = 1
+
         else:
-            # "D" in BASIC => Pen down + Draw
             turtle.pendown()
             turtle.goto(X, Y)
-    
-    turtle.hideturtle()
-    turtle.exitonclick()
-
-
-setup_canvas()
-draw_cheval()

@@ -1,18 +1,7 @@
 import turtle
-import math
 
-def setup_canvas(width=520):
-    """Sets up the turtle canvas with given width"""
-    turtle.setup(width=width, height=width)
-    turtle.setworldcoordinates(0, 0, width, width)
-    turtle.speed(0)
 
-def draw_smurf():
-    # Constants
-    NP = 480
-    PI = math.pi
-    
-    # Coordinate data
+def draw_smurf(NP: int = 480):
     DATA = [
         1000,
         12,12, 14,8, 14,4, 12,2, 8,2, 
@@ -48,33 +37,30 @@ def draw_smurf():
         data_index += 1
         return value
     
-    # Main drawing loop
     turtle.clear()
     turtle.penup()
-    turtle.goto(0, 100)  # Initial translation
+    turtle.goto(NP/25, NP/25)  # Initial translation
     
     while True:
         A = read_data()
+        
         if A == 2000:
             break
+        
         if A == 1000:
             B1 = 0
             A = read_data()
+        
         B = read_data()
         
-        X = int(NP * A / 60)
-        Y = int(NP * B / 60)
+        X = int(NP * A / 65)
+        Y = int(NP * B / 65)
         
         if B1 == 0:
             B1 = 1
             turtle.penup()
             turtle.goto(X, Y)
+        
         if B1 == 1:
             turtle.pendown()
             turtle.goto(X, Y)
-
-    turtle.hideturtle()
-    turtle.exitonclick()
-
-setup_canvas()
-draw_smurf()

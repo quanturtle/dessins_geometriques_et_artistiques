@@ -2,14 +2,6 @@ import turtle
 import math
 
 
-def setup_canvas(width=750):
-    """Sets up the turtle canvas with given width"""
-    turtle.setup(width=width, height=width)
-    turtle.setworldcoordinates(0, 0, width, width)
-    turtle.speed("fastest")
-    turtle.hideturtle()
-
-
 def draw_linear_modulo(DESSIN=108):
     # Constants
     NP = 480
@@ -62,10 +54,6 @@ def draw_linear_modulo(DESSIN=108):
         
         # Draw line to second point
         turtle.goto(X[i2], Y[i2])
-    
-    turtle.hideturtle()
-    turtle.exitonclick()
 
 
-setup_canvas()
 draw_linear_modulo(DESSIN=108)

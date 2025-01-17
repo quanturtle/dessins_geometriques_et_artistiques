@@ -1,26 +1,24 @@
-import turtle
 import math
+import turtle
+from typing import Optional
 
 
-def setup_canvas(NP=480):
-    """
-    Sets up the turtle window with a coordinate system [0,NP]x[0,NP]
-    and speed set to fastest.
-    """
-    turtle.setup(width=NP, height=NP)
-    turtle.setworldcoordinates(0, 0, NP, NP)
-    turtle.speed("fastest")
-    turtle.penup()
-    turtle.goto(0, 0)
-    turtle.pendown()
+def default_surface_subroutine(X: float, Y: float, NP: int) -> float:
+    # Default computation for Z = f(X, Y)
+    # return math.sin(X * math.pi) * math.cos(Y * math.pi) * (NP / 10)
+    return NP / 3 * math.sin(math.pi * Y) * math.sin(math.pi * X)
 
 
-def draw_surfaces():
-    NP = 480
-    N = 6
-    PA = NP / 16
-    E1 = 2
-    E2 = 1
+def draw_surface(
+        N: int = 6, 
+        PA: Optional[float] = None, 
+        E1: int = 2, 
+        E2: int = 1, 
+        surface_subroutine=default_surface_subroutine,
+        NP: int = 480):
+    
+    if PA is None:
+        PA = NP / 16
 
     XA, YA = NP / 2, NP / 16
     XB, YB = NP * 7 / 8, NP / 4
@@ -45,7 +43,6 @@ def draw_surfaces():
             X = (J - I1) / (I2 - I1)
             Y = (J - I1) / (I2 - I1)
 
-            # Subroutine for Z = f(X, Y)
             Z = surface_subroutine(X, Y, NP)
 
             XF = int(J * PA)
@@ -55,6 +52,7 @@ def draw_surfaces():
                 turtle.penup()
                 turtle.goto(XF, YF)
                 turtle.pendown()
+
             else:
                 if E2 != 1:
                     if MIN[J] < YF < MAX[J]:
@@ -64,20 +62,8 @@ def draw_surfaces():
 
                 if YF > MAX[J]:
                     MAX[J] = YF
+                
                 if YF < MIN[J]:
                     MIN[J] = YF
 
                 turtle.goto(XF, YF)
-
-    turtle.hideturtle()
-    turtle.exitonclick()
-
-
-def surface_subroutine(X, Y, NP):
-    """
-    Subroutine for Z = f(X, Y).
-    """
-    return NP / 3 * math.sin(math.pi * Y) * math.sin(math.pi * X)
-
-setup_canvas()
-draw_surfaces()
