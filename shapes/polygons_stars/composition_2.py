@@ -1,5 +1,5 @@
 import math
-from regular_star import draw_regular_star
+from .regular_star import draw_regular_star
 
 
 def draw_composition_2(K1: int = 8,

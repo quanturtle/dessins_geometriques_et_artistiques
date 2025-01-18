@@ -2,16 +2,14 @@ import math
 import turtle
 
 
-def draw_orbiting_curves(
-    NP: int = 480,
-    N: int = 2000,
-    T1: int = 2,
-    T2: int = 100,
-    K1: int = 1,
-    K2: int = 1,
-    R1_FACTOR: float = 0.25,
-    R2_FACTOR: float = 0.2
-):
+def draw_orbiting_curves(NP: int = 480,
+                         N: int = 2000,
+                         T1: int = 2,
+                         T2: int = 100,
+                         K1: int = 1,
+                         K2: int = 1,
+                         R1_FACTOR: float = 0.25,
+                         R2_FACTOR: float = 0.2):
     R1 = NP * R1_FACTOR
 
     for i in range(N + 1):
@@ -30,5 +28,3 @@ def draw_orbiting_curves(
         
         else:
             turtle.goto(X, Y)
-
-    turtle.done()

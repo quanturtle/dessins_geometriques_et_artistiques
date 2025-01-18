@@ -2,18 +2,16 @@ import math
 import turtle
 
 
-def draw_rotating_curves(
-    NP: int = 480,
-    N: int = 2000,
-    T1: int = 1,
-    T2: int = 100,
-    K1: int = 1,
-    K2: int = 1,
-    H1: int = 1,
-    H2: int = 1,
-    R1_FACTOR: float = 1/6,
-    R2_FACTOR: float = 1/4
-):
+def draw_rotating_curves(NP: int = 480,
+                         N: int = 2000,
+                         T1: int = 1,
+                         T2: int = 100,
+                         K1: int = 1,
+                         K2: int = 1,
+                         H1: int = 1,
+                         H2: int = 1,
+                         R1_FACTOR: float = 1/6,
+                         R2_FACTOR: float = 1/4):
     R1 = NP * R1_FACTOR
     R2 = NP * R2_FACTOR
 

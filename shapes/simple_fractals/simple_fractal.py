@@ -39,11 +39,12 @@ def draw_simple_fractal():
 
         X0 = XD
         Y0 = YD
+        
         turtle.penup()
         turtle.goto(int(X0), int(Y0))
         turtle.pendown()
 
-        A0 = math.atan2(YA - YD, XA - XD)  # atan2 handles division by zero and quadrant correction
+        A0 = math.atan2(YA - YD, XA - XD)
         L0 = math.sqrt((XA - XD)**2 + (YA - YD)**2)
 
         for I in range(0, N**K):
@@ -60,5 +61,6 @@ def draw_simple_fractal():
 
             X0 = X0 + LL * math.cos(AA)
             Y0 = Y0 + LL * math.sin(AA)
+            
             turtle.pendown()
             turtle.goto(int(X0), int(Y0))

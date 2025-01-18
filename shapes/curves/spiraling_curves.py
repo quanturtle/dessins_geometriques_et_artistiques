@@ -2,13 +2,11 @@ import math
 import turtle
 
 
-def draw_spiraling_curves(
-    N: int = 2000,
-    T: int = 40,
-    R: float = 0.8,
-    L: float = 0.1,
-    NP: int = 480
-):
+def draw_spiraling_curves(N: int = 2000,
+                          T: int = 40,
+                          R: float = 0.8,
+                          L: float = 0.1,
+                          NP: int = 480):
     for i in range(N + 1):
         RR = (L ** (i / N))
 
