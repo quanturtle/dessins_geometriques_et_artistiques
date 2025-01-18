@@ -4,8 +4,8 @@ import turtle
 
 def draw_dragon(N: int = 10, NP: int = 480):    
     A = [0] * (N + 1)
-    X0 = NP/3
-    Y0 = NP/2
+    X0 = NP/5
+    Y0 = NP/5
     A0 = -math.pi/4 * (N-2)
     L0 = NP/math.pow(math.sqrt(2), N)
     
