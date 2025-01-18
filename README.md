@@ -53,9 +53,9 @@ Recode of book "Dessins géométriques et artistiques avec votre micro-ordinateu
 python dessins.py demo
 ```
 
-Create a shape:
+Generate a shape:
 ```
-python dessins.py <command> <args>
+python dessins.py <command> <args> --output_stl False
 ```
 
 ```
@@ -63,4 +63,12 @@ python dessins.py regular_polygon --K 5     # draws a pentagon
 python dessins.py dragon --N 8
 ```
 
+Generate a design:
+```
+python dessins.py design --N 5
+```
 
+Generate a CAD design:
+```
+python dessins.py design --N 5 --output_stl True
+```
