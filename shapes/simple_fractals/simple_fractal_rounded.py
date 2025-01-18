@@ -1,18 +1,5 @@
-import turtle
 import math
-
-
-def setup_canvas(NP=480):
-    """
-    Sets up the turtle window with a coordinate system [0,NP]x[0,NP]
-    and speed set to fastest.
-    """
-    turtle.setup(width=NP, height=NP)
-    turtle.setworldcoordinates(0, 0, NP, NP)
-    turtle.speed("fastest")
-    turtle.penup()
-    turtle.goto(0, 0)
-    turtle.pendown()
+import turtle
 
 
 def draw_fractales_simples_arrondies():
@@ -20,21 +7,18 @@ def draw_fractales_simples_arrondies():
     M = 1
     N = 7
     K = 2
-    S = 5  # Number of segments for rounding
+    S = 5
 
-    # Initialize arrays based on BASIC dimensions
     X = [0] * (M + 1)
     Y = [0] * (M + 1)
     L_array = [0] * N
     A_array = [0] * N
 
-    # Lines 120-130: Set initial points
     X[0] = 0
     X[1] = 0
     Y[0] = NP
     Y[1] = -NP
 
-    # Line 140: Set L_array values
     L_array[0] = 1 / 2
     L_array[1] = 1 / 4
     L_array[2] = 1 / 4
@@ -43,7 +27,6 @@ def draw_fractales_simples_arrondies():
     L_array[5] = 1 / 2
     L_array[6] = 1 / 2
 
-    # Line 150: Set A_array values
     A_array[0] = 0
     A_array[1] = math.pi / 2
     A_array[2] = -math.pi
@@ -103,8 +86,6 @@ def draw_fractales_simples_arrondies():
             # Subroutine for rounded corners
             draw_rounded_corner(X0, Y0, X1, Y1, X2, Y2, S, I)
 
-    turtle.hideturtle()
-    turtle.exitonclick()
 
 def draw_rounded_corner(X0, Y0, X1, Y1, X2, Y2, S, I):
     """

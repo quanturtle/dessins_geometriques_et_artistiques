@@ -9,13 +9,12 @@ def default_surface_subroutine(X: float, Y: float, NP: int) -> float:
     return NP / 3 * math.sin(math.pi * Y) * math.sin(math.pi * X)
 
 
-def draw_surface(
-        N: int = 6, 
-        PA: Optional[float] = None, 
-        E1: int = 2, 
-        E2: int = 1, 
-        surface_subroutine=default_surface_subroutine,
-        NP: int = 480):
+def draw_surface(N: int = 6, 
+                 PA: Optional[float] = None, 
+                 E1: int = 2, 
+                 E2: int = 1, 
+                 surface_subroutine=default_surface_subroutine,
+                 NP: int = 480):
     
     if PA is None:
         PA = NP / 16

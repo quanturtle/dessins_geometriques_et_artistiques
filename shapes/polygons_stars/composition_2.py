@@ -2,16 +2,14 @@ import math
 from regular_star import draw_regular_star
 
 
-def draw_composition_2(
-    K1: int = 8,
-    N: int = 32,
-    K: int = 16,
-    H: int = 5,
-    R1_FACTOR: float = 0.36,
-    R_FACTOR: float = 0.14,
-    RR: float = 0.9,
-    NP: int = 480
-):
+def draw_composition_2(K1: int = 8,
+                       N: int = 32,
+                       K: int = 16,
+                       H: int = 5,
+                       R1_FACTOR: float = 0.36,
+                       R_FACTOR: float = 0.14,
+                       RR: float = 0.9,
+                       NP: int = 480):
     DX, DY = NP / 2, NP / 2
     R1 = NP * R1_FACTOR
     R = NP * R_FACTOR

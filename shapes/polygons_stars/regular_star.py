@@ -2,7 +2,12 @@ import math
 import turtle
 
 
-def draw_regular_star(CX: float, CY: float, K: int, H: int, R: float, AD: float):
+def draw_regular_star(CX: float, 
+                      CY: float, 
+                      K: int, 
+                      H: int, 
+                      R: float, 
+                      AD: float):
     for I in range(K):
         X = int(CX + R * math.cos(2 * I * H * math.pi / K + AD))
         Y = int(CY + R * math.sin(2 * I * H * math.pi / K + AD))

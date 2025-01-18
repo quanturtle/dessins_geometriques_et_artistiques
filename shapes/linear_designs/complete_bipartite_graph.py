@@ -1,6 +1,6 @@
 import turtle
 
-def draw_biparti_complet(N: int = 10, NP: int = 480):
+def draw_complete_bipartite_graph(N: int = 10, NP: int = 480):
     XA, YA = 0, 0
     XB, YB = 0, NP
     XC, YC = NP, 0

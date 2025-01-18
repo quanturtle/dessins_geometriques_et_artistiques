@@ -1,8 +1,8 @@
-import turtle
 import math
+import turtle
 
 
-def draw_etoiles_fractales(NP: int = 480):
+def draw_fractal_star(NP: int = 480):
     N = 5
     K = 5
     RA = 0.35
