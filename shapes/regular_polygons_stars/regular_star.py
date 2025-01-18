@@ -1,6 +1,6 @@
-# regular_star.py
-import turtle
 import math
+import turtle
+
 
 def draw_regular_star(CX: float, CY: float, K: int, H: int, R: float, AD: float):
     for I in range(K):

@@ -1,5 +1,5 @@
-import turtle
 import math
+import turtle
 
 
 def draw_regular_polygon(K: int = 5, NP: int = 480):
