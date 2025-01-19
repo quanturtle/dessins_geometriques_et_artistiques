@@ -7,12 +7,27 @@ from shapes.polygons_stars.composition_1 import draw_composition_1
 from shapes.polygons_stars.composition_2 import draw_composition_2
 from shapes.polygons_stars.prettygon import draw_prettygon
 
-def setup_canvas(NP: int):
-    # dragon ideal window: w=550, h=800
-    turtle.setup(width=NP, height=NP)
-    turtle.setworldcoordinates(0, 0, NP, NP)
-    turtle.speed("fastest")
+from shapes.designs_from_data.horse import draw_horse
+from shapes.designs_from_data.lion import draw_lion
+from shapes.designs_from_data.bird_fish import draw_bird_fish
+from shapes.designs_from_data.smurf import draw_smurf
+
+from shapes.folding_paper_dragons.dragon import draw_dragon
+
+from shapes.fractal_stars.fractal_star import draw_fractal_star
+
+
+def setup_canvas(command: str, NP: int):
+    if command == 'dragon':
+        turtle.setup(width=550, height=800)
+        turtle.setworldcoordinates(0, 0, 550, 800)
+        
+    else:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(0, 0, NP, NP)
     
+    turtle.tracer(0)
+
     turtle.penup()
     turtle.home()
     turtle.pendown()
@@ -23,6 +38,7 @@ def draw_shape(draw_function, *args, **kwargs):
 
 
 def post_processing():
+    turtle.update()
     turtle.hideturtle()
     turtle.exitonclick()
 
@@ -99,12 +115,19 @@ def main():
     dragon_parser.add_argument("--N", type=int, required=False, help="Number of iterations.")
     dragon_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
 
+    # Chapter 4
+    # Subparser for draw_fractal_star
+    fractal_star_parser = subparsers.add_parser("fractal_star", help="Draw a fractal star.")
+    fractal_star_parser.add_argument("--N", type=int, required=False, help="Number of iterations.")
+    fractal_star_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
+
+
     args = parser.parse_args()
 
     if args.NP is None:
         args.NP = 480
 
-    setup_canvas(args.NP)
+    setup_canvas(args.command, args.NP)
 
     # Draw shape
     if args.command == "regular_polygon":
@@ -121,6 +144,24 @@ def main():
 
     elif args.command == "prettygon":
         draw_shape(draw_prettygon)
+
+    elif args.command == "horse":
+        draw_shape(draw_horse)
+        
+    elif args.command == "lion":
+        draw_shape(draw_lion)
+        
+    elif args.command == "bird_fish":
+        draw_shape(draw_bird_fish)
+        
+    elif args.command == "smurf":
+        draw_shape(draw_smurf)
+        
+    elif args.command == "dragon":
+        draw_shape(draw_dragon, N=args.N, NP=args.NP)
+        
+    elif args.command == "fractal_star":
+        draw_shape(draw_fractal_star)
 
     # Post-processing step
     post_processing()
