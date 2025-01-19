@@ -33,6 +33,7 @@ def main():
     parser = argparse.ArgumentParser(description="Draw shapes using Turtle graphics.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
+    # Chapter 1
     # Subparser for draw_regular_polygon
     polygon_parser = subparsers.add_parser("regular_polygon", help="Draw a regular polygon.")
     polygon_parser.add_argument("--K", type=int, required=True, help="Number of sides of the polygon.")
@@ -75,6 +76,28 @@ def main():
     prettygon_parser.add_argument("--RR", type=float, required=False, help="Initial radius.")
     prettygon_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
 
+    # Chapter 2
+    # Subparser for draw_horse
+    horse_parser = subparsers.add_parser("horse", help="Draw a horse.")
+    horse_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
+
+    # Subparser for draw_lion
+    lion_parser = subparsers.add_parser("lion", help="Draw a lion.")
+    lion_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
+
+    # Subparser for draw_bird_fish
+    bird_fish_parser = subparsers.add_parser("bird_fish", help="Draw a bird or a fish.")
+    bird_fish_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
+
+    # Subparser for smurf
+    smurf_parser = subparsers.add_parser("smurf", help="Draw a smurf.")
+    smurf_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
+
+    # Chapter 3
+    # Subparser for draw_dragon
+    dragon_parser = subparsers.add_parser("dragon", help="Draw a dragon.")
+    dragon_parser.add_argument("--N", type=int, required=False, help="Number of iterations.")
+    dragon_parser.add_argument("--NP", type=int, required=False, help="Canvas size (NP x NP).")
 
     args = parser.parse_args()
 
