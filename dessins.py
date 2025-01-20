@@ -1,20 +1,28 @@
 import turtle
 import argparse
 
-from shapes.polygons_stars.regular_polygon import draw_regular_polygon
-from shapes.polygons_stars.regular_star import draw_regular_star
-from shapes.polygons_stars.composition_1 import draw_composition_1
-from shapes.polygons_stars.composition_2 import draw_composition_2
-from shapes.polygons_stars.prettygon import draw_prettygon
+from shapes.polygons_stars import (
+    draw_regular_polygon,
+    draw_regular_star,
+    draw_composition_1,
+    draw_composition_2,
+    draw_prettygon
+)
 
-from shapes.designs_from_data.horse import draw_horse
-from shapes.designs_from_data.lion import draw_lion
-from shapes.designs_from_data.bird_fish import draw_bird_fish
-from shapes.designs_from_data.smurf import draw_smurf
+from shapes.designs_from_data import (
+    draw_horse, 
+    draw_lion, 
+    draw_bird_fish, 
+    draw_smurf
+)
 
-from shapes.folding_paper_dragons.dragon import draw_dragon
+from shapes.folding_paper_dragons import (
+    draw_dragon
+)
 
-from shapes.fractal_stars.fractal_star import draw_fractal_star
+from shapes.fractal_stars import (
+    draw_fractal_star
+)
 
 
 def setup_canvas(command: str, NP: int):
@@ -85,7 +93,7 @@ def main():
 
     # Subparser for draw_prettygon
     prettygon_parser = subparsers.add_parser("prettygon", help="Draw a prettygon.")
-    prettygon_parser.add_argument("-K", type=int, required=True, help="Number of sides of the prettygon.")
+    prettygon_parser.add_argument("-K", type=int, required=False, help="Number of sides of the prettygon.")
     prettygon_parser.add_argument("-AN", type=float, required=False, help="Angle increment.")
     prettygon_parser.add_argument("-RA", type=float, required=False, help="Radius increment.")
     prettygon_parser.add_argument("-AA", type=float, required=False, help="Initial angle.")
