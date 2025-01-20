@@ -24,7 +24,7 @@ def draw_rounded_corner(X0, Y0, X1, Y1, X2, Y2, S, I):
             turtle.goto(int(X), int(Y))
 
 
-def draw_fractales_simples_arrondies():
+def draw_simple_fractal_rounded():
     NP = 480
     M = 1
     N = 7

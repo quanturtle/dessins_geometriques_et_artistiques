@@ -2,7 +2,7 @@ import turtle
 import math
 
 
-def draw_3d_perspective(DESSIN=201):
+def draw_d3data(DESSIN=201):
     NP = 480
     PI = math.pi
     DC = 2

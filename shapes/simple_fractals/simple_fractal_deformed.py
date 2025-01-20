@@ -19,7 +19,7 @@ def deformation_subroutine(X0: int, Y0: int, NP: int = 480):
     return X1, Y1
 
 
-def draw_fractales_simples_deformees(NP: int = 480):
+def draw_simple_fractal_deformed(NP: int = 480):
     M = 3
     N = 4
     K = 4
