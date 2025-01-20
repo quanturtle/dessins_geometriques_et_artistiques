@@ -55,7 +55,7 @@ The precision required to create these designs amazes me, and I wanted to take i
 9. [Surfaces](./shapes/surfaces/)
    * [Le programme SURFACES](./shapes/surfaces/surface.py)
 
-10.  [La troisième dimension](./shapes/third_dimension/)
+10. [La troisième dimension](./shapes/third_dimension/)
     * [Le programme D3DATA](./shapes/third_dimension/d3data.py)
     * [Le programme D3CUBE](./shapes/third_dimension/d3cube.py)
     * [Le programme D3STRUCTURES](./shapes/third_dimension/d3structures.py)
