@@ -6,14 +6,14 @@ def draw_composition_2(K1: int = 8,
                        N: int = 32,
                        K: int = 16,
                        H: int = 5,
-                       R1_FACTOR: float = 0.36,
-                       R_FACTOR: float = 0.14,
+                       R1: float = 480*0.36,
+                       R: float = 480*0.14,
                        RR: float = 0.9,
+                       DX: float = 240,
+                       DY: float = 240,
+                       A1: float = 0,
+                       AD: float = 0,
                        NP: int = 480):
-    DX, DY = NP / 2, NP / 2
-    R1 = NP * R1_FACTOR
-    R = NP * R_FACTOR
-
     for I1 in range(N):
         R2 = R1 * (RR ** I1)
         R3 = R * (RR ** I1)

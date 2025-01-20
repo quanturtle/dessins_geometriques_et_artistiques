@@ -33,6 +33,25 @@ from designs.polygons_stars.regular_star_designs import (
     design_12
 )
 
+from designs.polygons_stars.composition_1_designs import (
+    design_13,
+    design_14,
+    design_15,
+    design_16,
+    design_17,
+    design_18,
+    design_19
+)
+
+from designs.polygons_stars.composition_2_designs import (
+    design_20,
+    design_21,
+    design_22,
+    design_23,
+    design_24,
+    design_25
+)
+
 def setup_canvas(command: str, NP: int):
     if command == 'dragon':
         turtle.setup(width=550, height=800)
@@ -54,8 +73,8 @@ def draw_shape(draw_function, *args, **kwargs):
 
 
 def post_processing():
-    turtle.update()
     turtle.hideturtle()
+    turtle.update()
     turtle.exitonclick()
 
     print("Post-processing step (to be defined).")
@@ -184,7 +203,7 @@ def main():
         draw_shape(draw_fractal_star)
         
     elif args.command == "design":
-        design_12()
+        design_25()
 
     # Post-processing step
     post_processing()
