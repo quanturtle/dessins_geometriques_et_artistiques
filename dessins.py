@@ -1,29 +1,37 @@
 import turtle
 import argparse
 
-from shapes.polygons_stars import (
+from shapes import (
     draw_regular_polygon,
     draw_regular_star,
     draw_composition_1,
     draw_composition_2,
-    draw_prettygon
-)
-
-from shapes.designs_from_data import (
+    draw_prettygon,
     draw_horse, 
     draw_lion, 
     draw_bird_fish, 
-    draw_smurf
-)
-
-from shapes.folding_paper_dragons import (
-    draw_dragon
-)
-
-from shapes.fractal_stars import (
+    draw_smurf,
+    draw_dragon,
     draw_fractal_star
 )
 
+from designs.polygons_stars.regular_polygon_designs import (
+    design_1,
+    design_2,
+    design_3,
+    design_4,
+    design_5,
+    design_6
+)
+
+from designs.polygons_stars.regular_star_designs import (
+    design_7,
+    design_8,
+    design_9,
+    design_10,
+    design_11,
+    design_12
+)
 
 def setup_canvas(command: str, NP: int):
     if command == 'dragon':
@@ -128,7 +136,11 @@ def main():
     fractal_star_parser = subparsers.add_parser("fractal_star", help="Draw a fractal star.")
     fractal_star_parser.add_argument("-N", type=int, required=False, help="Number of iterations.")
     fractal_star_parser.add_argument("-NP", type=int, required=False, help="Canvas size (NP x NP).")
-
+    
+    # design subparser
+    design_parser = subparsers.add_parser("design", help="Draw a design.")
+    design_parser.add_argument("-N", type=int, required=False, help="Design number.")
+    design_parser.add_argument("-NP", type=int, required=False, help="Canvas size (NP x NP).")
 
     args = parser.parse_args()
 
@@ -170,6 +182,9 @@ def main():
         
     elif args.command == "fractal_star":
         draw_shape(draw_fractal_star)
+        
+    elif args.command == "design":
+        design_12()
 
     # Post-processing step
     post_processing()
