@@ -3,17 +3,16 @@ from shapes import draw_composition_2
 
 
 def design_20():
-    draw_composition_2()
-    # draw_composition_2(K1=,
-    #                    N=,
-    #                    K=,
-    #                    H=,
-    #                    R1=,
-    #                    R=,
-    #                    RR=,
-    #                    DX=,
-    #                    DY=,
-    #                    NP=)
+    draw_composition_2(K1=8,
+                       N=32,
+                       K=16,
+                       H=5,
+                       R1=480*0.36,
+                       R=480*0.14,
+                       RR=0.9,
+                       DX=240,
+                       DY=240,
+                       NP=480)
 
 
 def design_21():
