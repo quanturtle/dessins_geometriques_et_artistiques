@@ -61,9 +61,11 @@ The precision required to create these designs amazes me, and I wanted to take i
     * [Le programme D3STRUCTURES](./shapes/third_dimension/d3structures.py)
 
 ## Usage
-Demo:
+Demo & help:
 ```
 python dessins.py demo
+python dessins.py --help
+python dessins.py -h
 ```
 
 Generate a shape:
@@ -72,18 +74,20 @@ python dessins.py <command> <args> --output_stl default=False
 ```
 
 ```
-python dessins.py regular_polygon --K 5
-python dessins.py dragon --N 8
+python dessins.py regular_polygon       # draw standard shape
+python dessins.py regular_polygon -K 5  # specify parameter for shape
+python dessins.py dragon -N 8
 ```
 
 Generate a design:
 ```
-python dessins.py design --N 5
+python dessins.py design -N 5
 ```
 
 Generate a CAD design:
 ```
-python dessins.py design --N 5 --output_stl True
+python dessins.py design -N 5 --output_stl True
+python dessins.py design -N 5 -o False
 ```
 
 Shapes:
