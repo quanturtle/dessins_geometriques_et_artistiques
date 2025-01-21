@@ -1,7 +1,7 @@
 import math
 import turtle
 
-
+# TODO: fix this
 def draw_rounded_corner(X0, Y0, X1, Y1, X2, Y2, S, I):
     UX = X1 - X0
     UY = Y1 - Y0
@@ -24,38 +24,26 @@ def draw_rounded_corner(X0, Y0, X1, Y1, X2, Y2, S, I):
             turtle.goto(int(X), int(Y))
 
 
-def draw_simple_fractal_rounded():
-    NP = 480
-    M = 1
-    N = 7
-    K = 2
-    S = 5
-
-    X = [0] * (M + 1)
-    Y = [0] * (M + 1)
-    L_array = [0] * N
-    A_array = [0] * N
-
-    X[0] = 0
-    X[1] = 0
-    Y[0] = NP
-    Y[1] = -NP
-
-    L_array[0] = 1 / 2
-    L_array[1] = 1 / 4
-    L_array[2] = 1 / 4
-    L_array[3] = 1 / 4
-    L_array[4] = 1 / 4
-    L_array[5] = 1 / 2
-    L_array[6] = 1 / 2
-
-    A_array[0] = 0
-    A_array[1] = math.pi / 2
-    A_array[2] = -math.pi
-    A_array[3] = 0
-    A_array[4] = math.pi / 2
-    A_array[5] = -math.pi / 2
-    A_array[6] = 0
+def draw_simple_fractal_rounded(M: int = 1, 
+                                N: int = 7, 
+                                K: int = 2, 
+                                S: int = 5,
+                                X: list = None,
+                                Y: list = None,
+                                L_array: list = None,
+                                A_array: list = None,
+                                NP: int = 480):
+    if X is None:
+        X = [0, 1]
+    
+    if Y is None:
+        Y = [NP, -NP]
+        
+    if L_array is None:
+        L_array = [1/2, 1/4, 1/4, 1/4, 1/4, 1/2, 1/2]
+    
+    if A_array is None:
+        A_array = [0, math.pi / 2, -math.pi, 0, math.pi / 2, -math.pi / 2, 0]
 
     for II in range(M):
         XD = X[II]

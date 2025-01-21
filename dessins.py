@@ -22,6 +22,8 @@ from shapes import (
     draw_linear_modulo,
     draw_linear_sticks,
     draw_simple_fractal,
+    draw_simple_fractal_rounded,
+    draw_simple_fractal_deformed,
 )
 
 from designs.polygons_stars import (
@@ -293,8 +295,26 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
+        "simple_fractal_rounded": {
+            "help": "Draw a simple fractal with rounded corners.",
+            "args": {
+                "-M": {"type": int, "default": 3, "required": False, "help": "M"},
+                "-N": {"type": int, "default": 4, "required": False, "help": "N"},
+                "-K": {"type": int, "default": 4, "required": False, "help": "K"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "simple_fractal_deformed": {
+            "help": "Draw a simple fractal with deformed corners.",
+            "args": {
+                "-M": {"type": int, "default": 3, "required": False, "help": "M"},
+                "-N": {"type": int, "default": 4, "required": False, "help": "N"},
+                "-K": {"type": int, "default": 4, "required": False, "help": "K"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
         
-        "design": {"help": "Draw a design.", "args": {}}
+        # "design": {"help": "Draw a design.", "args": {}}
     }
 
     for cmd_name, cmd_config in command_parsers.items():
@@ -334,6 +354,8 @@ def main():
         "linear_modulo": draw_linear_modulo,
         "linear_sticks": draw_linear_sticks,
         "simple_fractal": draw_simple_fractal,
+        "simple_fractal_rounded": draw_simple_fractal_rounded,
+        "simple_fractal_deformed": draw_simple_fractal_deformed,
         "design": design_50
     }
 

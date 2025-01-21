@@ -1,14 +1,17 @@
 import math
 import turtle
 
-
-def deformation_subroutine(X0: int, Y0: int, NP: int = 480):
+# TODO: fix this
+def deformation_subroutine(X0: int, 
+                           Y0: int, 
+                           NP: int = 480):
     XH = X0 / NP * 2 - 1
     YH = Y0 / NP * 2 - 1
     DH = math.sqrt(XH * XH + YH * YH)
 
     if XH != 0:
         AH = math.atan2(YH, XH)
+    
     else:
         AH = math.pi / 2 * math.copysign(1, YH)
 
@@ -19,11 +22,10 @@ def deformation_subroutine(X0: int, Y0: int, NP: int = 480):
     return X1, Y1
 
 
-def draw_simple_fractal_deformed(NP: int = 480):
-    M = 3
-    N = 4
-    K = 4
-
+def draw_simple_fractal_deformed(M: int = 3,
+                                 N: int = 4,
+                                 K: int = 4,
+                                 NP: int = 480):
     X = [0] * (M + 1)
     Y = [0] * (M + 1)
     L_array = [0] * N
