@@ -1,27 +1,17 @@
-import turtle
 import math
+import turtle
+from typing import List
 
 
-def draw_d3data(DESSIN=201):
-    NP = 480
-    PI = math.pi
-    DC = 2
-    TC = 2
-    
-    OX, OY, OZ = 5, -2, 1.3
-    AZ, AY, AX = 3*PI/4, 0, 0
-    QX, QY, QZ = 0, 0, 0
-    
-    if DESSIN == 202:
-        OX, OY, OZ = 5, -2, 6
-        AZ, AY, AX = 3*PI/4, -PI/4, 4
-    elif DESSIN == 203:
-        OX, OY, OZ = 5, -3, 0
-        AZ, AY, AX = 3*PI/4, PI/4, 4
-    elif DESSIN == 205:
-        OX, OY, OZ = 0, 0, 0
-        AZ, AY, AX = -PI/4, 0, 0
-        QX, QY, QZ = 0, 1, 0
+def draw_d3data(DC: int = 2, 
+                TC: int = 2,
+                O: List[float] = [5, -2, 1.3], 
+                A: List[float] = [3*math.pi/4, 0, 0], 
+                Q: List[float] = [0, 1, 0],
+                NP: int = 480):
+    OX, OY, OZ = O
+    AZ, AY, AX = A
+    QX, QY, QZ = Q
     
     C1, S1 = math.cos(AZ), -math.sin(AZ)
     C2, S2 = math.cos(AY), -math.sin(AY)
@@ -99,11 +89,3 @@ def draw_d3data(DESSIN=201):
         MY = read_data()
         MZ = read_data()
         perspective_transform(MX, MY, MZ)
-    
-    if DESSIN == 202:
-        turtle.penup()
-        turtle.setworldcoordinates(0, -NP*1.25, 750, 750-NP*1.25)
-
-    elif DESSIN == 203:
-        turtle.penup()
-        turtle.setworldcoordinates(0, 100, 750, 850)

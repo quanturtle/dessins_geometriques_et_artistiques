@@ -1,8 +1,9 @@
 import math
 import turtle
+from typing import Callable
 
 # TODO: fix this
-def deformation_subroutine(X0: int, 
+def default_deformation_subroutine(X0: int, 
                            Y0: int, 
                            NP: int = 480):
     XH = X0 / NP * 2 - 1
@@ -25,6 +26,7 @@ def deformation_subroutine(X0: int,
 def draw_simple_fractal_deformed(M: int = 3,
                                  N: int = 4,
                                  K: int = 4,
+                                 deformation_subroutine: Callable = default_deformation_subroutine,
                                  NP: int = 480):
     X = [0] * (M + 1)
     Y = [0] * (M + 1)
@@ -38,10 +40,7 @@ def draw_simple_fractal_deformed(M: int = 3,
     for idx in range(N):
         L_array[idx] = 1 / 3
 
-    A_array[0] = 0
-    A_array[1] = math.pi / 3
-    A_array[2] = -math.pi / 3
-    A_array[3] = 0
+    A_array = [0, math.pi/3, -math.pi/3, 0]
 
     for II in range(M):
         XD = X[II]
@@ -53,14 +52,17 @@ def draw_simple_fractal_deformed(M: int = 3,
         Y0 = YD
 
         X1, Y1 = deformation_subroutine(X0, Y0, NP)
+        
         turtle.penup()
         turtle.goto(X1, Y1)
         turtle.pendown()
 
         if XA != XD:
             A0 = math.atan2(YA - YD, XA - XD)
+        
         else:
             A0 = math.pi / 2 * math.copysign(1, YA - YD)
+        
         if (XA - XD) < 0:
             A0 += math.pi
 

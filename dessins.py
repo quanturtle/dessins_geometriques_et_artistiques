@@ -2,6 +2,7 @@ import sys
 import math
 import turtle
 import argparse
+from typing import Callable
 
 from shapes import (
     draw_regular_polygon,
@@ -24,6 +25,11 @@ from shapes import (
     draw_simple_fractal,
     draw_simple_fractal_rounded,
     draw_simple_fractal_deformed,
+    draw_elastic_grid,
+    draw_surface,
+    draw_d3data,
+    draw_d3cube,
+    draw_d3structures,
 )
 
 from designs.polygons_stars import (
@@ -93,6 +99,22 @@ from designs.folding_paper_dragons import (
     design_64,
 )
 
+from designs.fractal_stars import (
+    design_65,
+    design_66,
+    design_67,
+    design_68,
+    design_69,
+    design_70,
+    design_71,
+    design_72,
+    design_73,
+    design_74,
+    design_75,
+    design_76,
+    design_77,
+)
+
 
 def setup_canvas(command: str, NP: int, animation: str = "instant"):
     if command == 'dragon':
@@ -106,6 +128,10 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
     elif command == 'simple_fractal':
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, 1.3*NP, 1.3*NP)
+        
+    elif command == 'd3data':
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(0, 0, 1.5*NP, 1.5*NP)
 
     else:
         turtle.setup(width=NP, height=NP)
@@ -313,8 +339,41 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        
-        # "design": {"help": "Draw a design.", "args": {}}
+        "elastic_grid": {
+            "help": "Draw an elastic grid.",
+            "args": {
+                "-deformation_subroutine": {"type": Callable, "default": lambda di: di**0.3 if di < 1 else di, "required": False, "help": "Deformation subroutine"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "surface": {
+            "help": "Draw a surface.",
+            "args": {
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "d3data": {
+            "help": "Draw a 3D data.",
+            "args": {
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "d3cube": {
+            "help": "Draw a 3D cube.",
+            "args": {
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "d3structures": {
+            "help": "Draw 3D structures.",
+            "args": {
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "design": {
+            "help": "Draw a design.",
+            "args": {}
+        }
     }
 
     for cmd_name, cmd_config in command_parsers.items():
@@ -356,7 +415,12 @@ def main():
         "simple_fractal": draw_simple_fractal,
         "simple_fractal_rounded": draw_simple_fractal_rounded,
         "simple_fractal_deformed": draw_simple_fractal_deformed,
-        "design": design_50
+        "elastic_grid": draw_elastic_grid,
+        "surface": draw_surface,
+        "d3data": draw_d3data,
+        "d3cube": draw_d3cube,
+        "d3structures": draw_d3structures,
+        "design": design_67
     }
 
     draw_shape(shape_functions[args.command])
