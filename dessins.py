@@ -14,7 +14,10 @@ from shapes import (
     draw_bird_fish, 
     draw_smurf,
     draw_dragon,
-    draw_fractal_star
+    draw_fractal_star,
+    draw_orbiting_curves,
+    draw_rotating_curves,
+    draw_spiraling_curves,
 )
 
 from designs.polygons_stars import (
@@ -104,7 +107,6 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
 
     turtle.penup()
     turtle.home()
-    turtle.pendown()
 
 
 def draw_shape(draw_function, *args, **kwargs):
@@ -129,7 +131,7 @@ def main():
             "help": "Draw a regular polygon.",
             "args": {
                 "-K": {"type": int, "default": 5, "required": False, "help": "Number of sides"},
-                "-R": {"type": float, "default": 240*0.45, "required": False, "help": "Radius"},
+                "-R": {"type": float, "default": 240*0.45, "required": False, "help": "Radius, NP/2*R"},
                 "-AD": {"type": float, "default": math.pi/4, "required": False, "help": "Starting angle in degrees"}
             }
         },
@@ -144,30 +146,99 @@ def main():
         },
         "composition_1": {
             "help": "Draw a composition of shapes.",
-            "args": {}
+            "args": {
+                "-K1": {"type": int, "default": 5, "required": False, "help": "Number of shapes"},
+                "-R1": {"type": float, "default": 240*0.27, "required": False, "help": "Radius, NP/2*R1"},
+                "-A1": {"type": float, "default": math.pi/2, "required": False, "help": "Starting angle in degrees"},
+                "-K": {"type": int, "default": 25, "required": False, "help": "Number of points"},
+                "-H": {"type": int, "default": 12, "required": False, "help": "Skip H points each time"},
+                "-R": {"type": float, "default": 240*0.22, "required": False, "help": "Radius, NP/2*R"},
+                "-AD": {"type": float, "default": math.pi/2, "required": False, "help": "Starting angle in degrees"}
+            }
         },
         "composition_2": {
             "help": "Draw a composition of shapes.",
-            "args": {}
+            "args": {
+                "-K1": {"type": int, "default": 5, "required": False, "help": "Number of shapes"},
+                "-N": {"type": int, "default": 32, "required": False, "help": "Number of shapes"},
+                "-K": {"type": int, "default": 16, "required": False, "help": "Number of points"},
+                "-H": {"type": int, "default": 5, "required": False, "help": "Skip H points each time"},
+                "-R1": {"type": float, "default": 240*0.36, "required": False, "help": "Radiusm, NP/2*R1"},
+                "-R": {"type": float, "default": 240*0.14, "required": False, "help": "Radius, NP/2*R"},
+                "-RR": {"type": float, "default": 0.9, "required": False, "help": "Radius ratio"},
+            }
         },
         "prettygon": {
             "help": "Draw a prettygon.",
             "args": {
                 "-K": {"type": int, "default": 5, "required": False, "help": "Number of sides"},
-                "-R": {"type": int, "default": 100, "required": False, "help": "Radius"}
+                "-AN": {"type": float, "default": 15*(math.pi/31), "required": False, "help": "Angle"},
+                "-RA": {"type": float, "default": 0.98, "required": False, "help": "Radius ratio"},
+                "-AA": {"type": float, "default": 0.0, "required": False, "help": "Starting angle"},
+                "-RR": {"type": float, "default": 480*0.80, "required": False, "help": "Radius, NP*R"},
+                "-initial_y": {"type": float, "default": 0, "required": False, "help": "Initial y-coordinate"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+                
             }
         },
         "horse": {"help": "Draw a horse.", "args": {}},
         "lion": {"help": "Draw a lion.", "args": {}},
         "bird_fish": {"help": "Draw a bird or a fish.", "args": {}},
         "smurf": {"help": "Draw a smurf.", "args": {}},
-        "dragon": {"help": "Draw a dragon.", "args": {}},
+        "dragon": {
+            "help": "Draw a dragon.", "args": {
+                "-N": {"type": int, "default": 10, "required": False, "help": "Number of iterations"},
+            }
+        },
         "fractal_star": {
             "help": "Draw a fractal star.",
             "args": {
-                "-D": {"type": int, "default": 3, "required": False, "help": "Depth of recursion"}
+                "-N": {"type": int, "default": 5, "required": False, "help": "Number of points"},
+                "-K": {"type": int, "default": 5, "required": False, "help": "Number of iterations"},
+                "-RA": {"type": float, "default": 0.35, "required": False, "help": "Radius ratio"},
+                "-LL": {"type": float, "default": 480*0.6, "required": False, "help": "Line length"},
+                "-AA": {"type": float, "default": 4*math.pi/5, "required": False, "help": "Angle"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
+        "orbiting_curves": {
+            "help": "Draw orbiting curves.",
+            "args": {
+                "-N": {"type": int, "default": 2000, "required": False, "help": "Number of iterations"},
+                "-T1": {"type": int, "default": 2, "required": False, "help": "Time factor 1"},
+                "-T2": {"type": int, "default": 100, "required": False, "help": "Time factor 2"},
+                "-K1": {"type": int, "default": 1, "required": False, "help": "Number of points 1"},
+                "-K2": {"type": int, "default": 1, "required": False, "help": "Number of points 2"},
+                "-R1": {"type": float, "default": 480*0.25, "required": False, "help": "Radius 1"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "rotating_curves": {
+            "help": "Draw rotating curves.",
+            "args": {
+                "-N": {"type": int, "default": 2000, "required": False, "help": "Number of iterations"},
+                "-T1": {"type": int, "default": 1, "required": False, "help": "Time factor 1"},
+                "-T2": {"type": int, "default": 100, "required": False, "help": "Time factor 2"},
+                "-K1": {"type": int, "default": 1, "required": False, "help": "Number of points 1"},
+                "-K2": {"type": int, "default": 1, "required": False, "help": "Number of points 2"},
+                "-H1": {"type": int, "default": 1, "required": False, "help": "Skip points 1"},
+                "-H2": {"type": int, "default": 1, "required": False, "help": "Skip points 2"},
+                "-R1": {"type": float, "default": 480*0.6, "required": False, "help": "Radius 1"},
+                "-R2": {"type": float, "default": 480*0.4, "required": False, "help": "Radius 2"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "spiraling_curves": {
+            "help": "Draw spiraling curves.",
+            "args": {
+                "-N": {"type": int, "default": 2000, "required": False, "help": "Number of iterations"},
+                "-T": {"type": int, "default": 40, "required": False, "help": "Time factor"},
+                "-R": {"type": float, "default": 0.8, "required": False, "help": "Radius"},
+                "-L": {"type": float, "default": 0.1, "required": False, "help": "Length"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        
         "design": {"help": "Draw a design.", "args": {}}
     }
 
@@ -201,6 +272,9 @@ def main():
         "smurf": draw_smurf,
         "dragon": draw_dragon,
         "fractal_star": draw_fractal_star,
+        "orbiting_curves": draw_orbiting_curves,
+        "rotating_curves": draw_rotating_curves,
+        "spiraling_curves": draw_spiraling_curves,
         "design": design_50
     }
 

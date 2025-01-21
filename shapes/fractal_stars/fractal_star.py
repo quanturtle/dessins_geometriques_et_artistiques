@@ -2,13 +2,12 @@ import math
 import turtle
 
 
-def draw_fractal_star(NP: int = 480):
-    N = 5
-    K = 5
-    RA = 0.35
-    LL = NP * 0.6
-    AA = 4 * math.pi / 5
-    
+def draw_fractal_star(N: int = 5,
+                      K: int = 5,
+                      RA: float = 0.35,
+                      LL: float = 480*0.6,
+                      AA: float = 4*math.pi/5,
+                      NP: int = 480):
     X0 = NP/2
     Y0 = NP/2
     A0 = -AA
