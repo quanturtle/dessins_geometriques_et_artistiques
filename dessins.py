@@ -21,6 +21,7 @@ from shapes import (
     draw_complete_bipartite_graph,
     draw_linear_modulo,
     draw_linear_sticks,
+    draw_simple_fractal,
 )
 
 from designs.polygons_stars import (
@@ -99,6 +100,10 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
     elif command == 'linear_modulo':
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, 1.5*NP, 1.5*NP)
+        
+    elif command == 'simple_fractal':
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(0, 0, 1.3*NP, 1.3*NP)
 
     else:
         turtle.setup(width=NP, height=NP)
@@ -279,6 +284,15 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
+        "simple_fractal": {
+            "help": "Draw a simple fractal.",
+            "args": {
+                "-M": {"type": int, "default": 3, "required": False, "help": "M"},
+                "-N": {"type": int, "default": 4, "required": False, "help": "N"},
+                "-K": {"type": int, "default": 4, "required": False, "help": "K"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
         
         "design": {"help": "Draw a design.", "args": {}}
     }
@@ -319,6 +333,7 @@ def main():
         "complete_bipartite_graph": draw_complete_bipartite_graph,
         "linear_modulo": draw_linear_modulo,
         "linear_sticks": draw_linear_sticks,
+        "simple_fractal": draw_simple_fractal,
         "design": design_50
     }
 
