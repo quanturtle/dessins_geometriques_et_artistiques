@@ -2,14 +2,12 @@ import math
 import turtle
 
 
-def draw_linear_modulo(NP: int = 480):
-    N = 500
-    K1 = 11/7
-    K2 = 7/3
-    H = 3
-    
-    M = N
-    
+def draw_linear_modulo(N: int = 400,
+                       M: int = 400,
+                       K1: float = 4,
+                       K2: float = 5,
+                       H: int = 2,
+                       NP: int = 480):    
     X = []
     Y = []
     

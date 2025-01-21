@@ -2,11 +2,10 @@ import math
 import turtle
 
 
-def draw_linear_sticks(NP: int = 480):
-    N = 100
-    M = 1
-    K = 5
-    
+def draw_linear_sticks(N: int = 100,
+                       M: int = 1,
+                       K: int = 5,
+                       NP: int = 480):
     for i in range(1, M + 1):
         R1 = NP/4
         R2 = NP * 5/24

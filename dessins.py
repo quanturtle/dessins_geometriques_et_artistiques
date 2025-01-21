@@ -18,6 +18,9 @@ from shapes import (
     draw_orbiting_curves,
     draw_rotating_curves,
     draw_spiraling_curves,
+    draw_complete_bipartite_graph,
+    draw_linear_modulo,
+    draw_linear_sticks,
 )
 
 from designs.polygons_stars import (
@@ -92,6 +95,10 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
     if command == 'dragon':
         turtle.setup(width=550, height=800)
         turtle.setworldcoordinates(0, 0, 550, 800)
+
+    elif command == 'linear_modulo':
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(0, 0, 1.5*NP, 1.5*NP)
 
     else:
         turtle.setup(width=NP, height=NP)
@@ -238,6 +245,40 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
+        "complete_bipartite_graph": {
+            "help": "Draw a complete bipartite graph.",
+            "args": {
+                "-N": {"type": int, "default": 10, "required": False, "help": "Number of vertices in the first set"},
+                "-XA": {"type": int, "default": 0, "required": False, "help": "XA"},
+                "-YA": {"type": int, "default": 0, "required": False, "help": "YA"},
+                "-XB": {"type": int, "default": 0, "required": False, "help": "XB"},
+                "-YB": {"type": int, "default": 480, "required": False, "help": "YB"},
+                "-XC": {"type": int, "default": 480, "required": False, "help": "XC"},
+                "-YC": {"type": int, "default": 0, "required": False, "help": "YC"},
+                "-XD": {"type": int, "default": 480, "required": False, "help": "XD"},
+                "-YD": {"type": int, "default": 480, "required": False, "help": "YD"},
+            }
+        },
+        "linear_modulo": {
+            "help": "Draw linear modulo.",
+            "args": {
+                "-N": {"type": int, "default": 10, "required": False, "help": "Number of points"},
+                "-M": {"type": int, "default": 10, "required": False, "help": "Number of curves"},
+                "-K1": {"type": float, "default": 4, "required": False, "help": "K1"},
+                "-K2": {"type": float, "default": 5, "required": False, "help": "K2"},
+                "-H": {"type": int, "default": 2, "required": False, "help": "H"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
+        "linear_sticks": {
+            "help": "Draw linear sticks.",
+            "args": {
+                "-N": {"type": int, "default": 10, "required": False, "help": "Number of points"},
+                "-M": {"type": int, "default": 1, "required": False, "help": "Number of sticks"},
+                "-K": {"type": int, "default": 5, "required": False, "help": "Modulo"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
+            }
+        },
         
         "design": {"help": "Draw a design.", "args": {}}
     }
@@ -275,6 +316,9 @@ def main():
         "orbiting_curves": draw_orbiting_curves,
         "rotating_curves": draw_rotating_curves,
         "spiraling_curves": draw_spiraling_curves,
+        "complete_bipartite_graph": draw_complete_bipartite_graph,
+        "linear_modulo": draw_linear_modulo,
+        "linear_sticks": draw_linear_sticks,
         "design": design_50
     }
 
