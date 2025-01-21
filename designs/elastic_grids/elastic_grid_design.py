@@ -1,6 +1,6 @@
 from shapes import draw_elastic_grid
 
-
+#TODO
 def design_164():
     draw_elastic_grid()
 

@@ -210,6 +210,22 @@ from designs.simple_fractals import (
     design_163,
 )
 
+from designs.elastic_grids import (
+    design_164,
+    design_165,
+    design_166,
+    design_167,
+    design_168,
+    design_169,
+    design_170,
+    design_171,
+    design_172,
+    design_173,
+    design_174,
+    design_175,
+    design_176,
+)
+
 
 def setup_canvas(command: str, NP: int, animation: str = "instant"):
     if command == 'dragon':
@@ -515,7 +531,7 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design": design_115
+        "design": design_164
     }
 
     draw_shape(shape_functions[args.command])

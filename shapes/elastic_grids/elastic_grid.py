@@ -3,6 +3,8 @@ import turtle
 from typing import Callable
 
 
+# TODO: factor out these two functions
+# DI_func
 def default_deformation_subroutine(DI: float) -> float:
     if DI < 1:
         return DI ** 0.3
@@ -10,6 +12,12 @@ def default_deformation_subroutine(DI: float) -> float:
     return DI
 
 
+# AN_func
+# def default_AN_func()
+
+
+# add L_range, I_range, J_range
+# X_strecht, Y_strecht
 def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_subroutine, 
                       NP: int = 480):
     def sgn(x):

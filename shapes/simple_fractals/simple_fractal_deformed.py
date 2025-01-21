@@ -4,8 +4,8 @@ from typing import Callable
 
 # TODO: fix this
 def default_deformation_subroutine(X0: int, 
-                           Y0: int, 
-                           NP: int = 480):
+                                   Y0: int, 
+                                   NP: int = 480):
     XH = X0 / NP * 2 - 1
     YH = Y0 / NP * 2 - 1
     DH = math.sqrt(XH * XH + YH * YH)

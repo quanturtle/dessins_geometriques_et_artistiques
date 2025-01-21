@@ -1,6 +1,6 @@
 from shapes import draw_linear_sticks
 
-
+#TODO
 def design_110():
     draw_linear_sticks()
 
