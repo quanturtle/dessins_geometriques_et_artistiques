@@ -31,9 +31,34 @@ from .polygons_stars import (
     design_30,
     design_31,
     design_32,
-    design_33
+    design_33,
 )
 
+from .designs_from_data import (
+    design_34,
+    design_35,
+    design_36,
+    design_37,
+    design_38,
+    design_39,
+    design_40,
+    design_41,
+    design_42,
+    design_43,
+    design_44,
+    design_45,
+    design_46,
+    design_47,
+    design_48,
+)
+    
+# from .folding_paper_dragons import (
+#     design_49,
+# )
+
+# from fractal_stars import (
+#     design_65,
+# )
 
 __all__ = [
     "design_1",
@@ -68,5 +93,20 @@ __all__ = [
     "design_30",
     "design_31",
     "design_32",
-    "design_33"
+    "design_33",
+    "design_34",
+    "design_35",
+    "design_36",
+    "design_37",
+    "design_38",
+    "design_39",
+    "design_40",
+    "design_41",
+    "design_42",
+    "design_43",
+    "design_44",
+    "design_45",
+    "design_46",
+    "design_47",
+    "design_48"
 ]
