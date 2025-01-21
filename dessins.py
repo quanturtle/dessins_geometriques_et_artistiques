@@ -515,7 +515,7 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design": design_80
+        "design": design_115
     }
 
     draw_shape(shape_functions[args.command])

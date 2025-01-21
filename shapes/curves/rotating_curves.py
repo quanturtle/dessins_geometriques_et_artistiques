@@ -1,5 +1,14 @@
 import math
 import turtle
+from typing import Callable
+
+
+def default_S_func(i: int, N: int) -> float:
+    return math.cos(4 * math.pi * i/N) * 0.4 + 0.6
+
+
+def default_Y_func(NP, C1, C2, R1, R2, S1, S2) -> float:
+    return NP/2 + R1*S1 + R2*(S1*C2 + C1*S2)
 
 
 def draw_rotating_curves(N: int = 2000,
@@ -11,10 +20,11 @@ def draw_rotating_curves(N: int = 2000,
                          H2: int = 1,
                          R1: float = 480/6,
                          R2: float = 480/4,
-                         use_scale: bool = True,
+                         S_func: Callable = default_S_func,
+                         Y_func: Callable = default_Y_func,
                          NP: int = 480):
     for i in range(N):
-        S_ = math.cos(4 * math.pi * i/N) * 0.4 + 0.6 if use_scale else 1
+        S_ = S_func(i, N)
         AN = 2 * math.pi * i/N
         
         C1 = math.cos(H1 * AN * T1)
@@ -24,7 +34,7 @@ def draw_rotating_curves(N: int = 2000,
         S2 = S_ * math.sin(K2 * AN * T2)
         
         X = NP/2 + R1*C1 + R2*(C1*C2 - S1*S2)
-        Y = NP/2 + R1*S1 + R2*(S1*C2 + C1*S2)
+        Y = Y_func(NP, C1, C2, R1, R2, S1, S2)
         
         if i == 0:
             turtle.penup()
