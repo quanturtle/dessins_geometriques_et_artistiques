@@ -4,6 +4,7 @@ import turtle
 
 def draw_dragon(N: int = 10, NP: int = 480):    
     A = [0] * (N + 1)
+    # TODO: change len(A) to change design
     X0 = NP/3
     Y0 = NP/2
     A0 = -math.pi/4 * (N-2)

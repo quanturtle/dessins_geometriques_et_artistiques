@@ -1,15 +1,15 @@
 from shapes import draw_dragon
 
 def design_50():
-    draw_dragon()
+    draw_dragon(N=6)
     
 
 def design_51():
-    draw_dragon()
+    draw_dragon(N=10)
     
 
 def design_52():
-    draw_dragon()
+    draw_dragon(N=14)
     
 
 def design_53():

@@ -39,23 +39,3 @@ def design_42():
     
 def design_43():
     draw_horse()
-    
-    
-def design_44():
-    draw_horse()
-    
-    
-def design_45():
-    draw_horse()
-    
-    
-def design_46():
-    draw_horse()
-    
-    
-def design_47():
-    draw_horse()
-    
-    
-def design_48():
-    draw_horse()

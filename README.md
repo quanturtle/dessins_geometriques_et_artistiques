@@ -4,7 +4,7 @@
 Recode of book "Dessins géométriques et artistiques avec votre micro-ordinateur" (1985) with python.
 
 ## About
-In 1985, mathematician Jean-Paul Delahaye used a [Canon X-07](https://en.wikipedia.org/wiki/Canon_X-07) microcomputer with a [X-710 color plotter](https://www.youtube.com/watch?v=JWhNcsYoXQ0) to create incredibly simple yet elegant designs, showcased in his book _Dessins géométriques et artistiques avec votre micro-ordinateur_. Inspired by his work and that of another developer, I decided to port the original BASIC code into Python and use the turtle module to reproduce these captivating designs—just as Delahaye did nearly four decades ago.
+In 1985, mathematician Jean-Paul Delahaye used a [Canon X-07](https://en.wikipedia.org/wiki/Canon_X-07) microcomputer with a [X-710 color plotter](https://www.youtube.com/watch?v=JWhNcsYoXQ0) to create incredibly simple yet elegant designs, showcased in his book _Dessins géométriques et artistiques avec votre micro-ordinateur_. Inspired by his work and that of another developer, I decided to port the original BASIC code into Python and use the turtle module to reproduce these captivating designs—just as Delahaye did four decades ago.
 
 ![Star](/img/example_star.png)
 
