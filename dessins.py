@@ -115,6 +115,101 @@ from designs.fractal_stars import (
     design_77,
 )
 
+from designs.curves import (
+    design_78,
+    design_79,
+    design_80,
+    design_81,
+    design_82,
+    design_83,
+    design_84,
+    design_85,
+    design_86,
+    design_87,
+    design_88,
+    design_89,
+    design_90,
+    design_91,
+    design_92,
+    design_93,
+    design_94,
+    design_95,
+    design_96,
+    design_97,
+    design_98,
+    design_99,
+    design_100,
+)
+
+from designs.linear_designs import (
+    design_101,
+    design_102,
+    design_103,
+    design_104,
+    design_105,
+    design_106,
+    design_107,
+    design_108,
+    design_109,
+    design_110,
+    design_111,
+    design_112,
+    design_113,
+    design_114,
+)
+
+from designs.simple_fractals import (
+    design_115,
+    design_116,
+    design_117,
+    design_118,
+    design_119,
+    design_120,
+    design_121,
+    design_122,
+    design_123,
+    design_124,
+    design_125,
+    design_126,
+    design_127,
+    design_128,
+    design_129,
+    design_130,
+    design_131,
+    design_132,
+    design_133,
+    design_134,
+    design_135,
+    design_136,
+    design_137,
+    design_138,
+    design_139,
+    design_140,
+    design_141,
+    design_142,
+    design_143,
+    design_144,
+    design_145,
+    design_146,
+    design_147,
+    design_148,
+    design_149,
+    design_150,
+    design_151,
+    design_152,
+    design_153,
+    design_154,
+    design_155,
+    design_156,
+    design_157,
+    design_158,
+    design_159,
+    design_160,
+    design_161,
+    design_162,
+    design_163,
+)
+
 
 def setup_canvas(command: str, NP: int, animation: str = "instant"):
     if command == 'dragon':
@@ -420,12 +515,11 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design": design_67
+        "design": design_80
     }
 
     draw_shape(shape_functions[args.command])
 
-    # Post-processing step
     post_processing()
     
     return sys.exit(0)
