@@ -60,23 +60,35 @@ The precision required to create these designs amazes me, and I wanted to take i
     * [Le programme D3CUBE](./shapes/third_dimension/d3cube.py)
     * [Le programme D3STRUCTURES](./shapes/third_dimension/d3structures.py)
 
+## Program structure
+`shapes`: contains the original programs
+`designs`: designs using the original programs with modified arguments
+`cad`: pipeline to generate a CAD design that can be 3D printed
+
 ## Usage
-Demo & help:
+Basic usage:
 ```
-python dessins.py demo
-python dessins.py --help
-python dessins.py -h
+python dessins.py <command>
 ```
+where `command` is a shape (like `regular_polygon` or `dragon`).
+This will run the standard program from the book.  
+The plotting window `NP` is generally set at `480`.
 
 Generate a shape:
 ```
-python dessins.py <command> <args> --output_stl default=False
+python dessins.py <command> <kwargs> --animate instant --output_stl false
 ```
+Each shape has `kwargs` that need to be passed or it will default to the original program's arguments.
 
+Examples
 ```
 python dessins.py regular_polygon       # draw standard shape
-python dessins.py regular_polygon -K 5  # specify parameter for shape
+python dessins.py regular_polygon -K 8  # specify parameter for shape
+```
+```
+python dessins.py dragon
 python dessins.py dragon -N 8
+python dessins.py dragon -N 12
 ```
 
 Generate a design:
@@ -86,8 +98,8 @@ python dessins.py design -N 5
 
 Generate a CAD design:
 ```
-python dessins.py design -N 5 --output_stl True
-python dessins.py design -N 5 -o False
+python dessins.py regular_polygon -K 5 --output_stl true
+python dessins.py design -N 5 -o true
 ```
 
 Shapes:
@@ -128,5 +140,3 @@ d3data
 d3cube
 d3structures
 ```
-
-Designs: 1-250
