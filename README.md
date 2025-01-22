@@ -61,11 +61,9 @@ The precision required to create these designs amazes me, and I wanted to take i
     * [Le programme D3STRUCTURES](./shapes/third_dimension/d3structures.py)
 
 ## Program structure
-`shapes`: contains the original programs
-
-`designs`: designs using the original programs with modified arguments
-
-`cad`: pipeline to generate a CAD design that can be 3D printed
+* `shapes`: contains the original programs
+* `designs`: designs using the original programs with modified arguments
+* `cad`: pipeline to generate a CAD design that can be 3D printed
 
 ## Installation
 Install using `miniforge`:
@@ -97,6 +95,10 @@ The plotting window `NP` is generally set at `480`.
 Generate a shape:
 ```
 python dessins.py <command> <kwargs> --animate instant --output my_design
+```
+```
+--animate: str                      -default: instant, choices=[fast, fastest, instant]
+--output:  Optional[str] = None     -default: None (no .stl output)
 ```
 Each shape has `kwargs` that need to be passed or it will default to the original program's arguments.
 
