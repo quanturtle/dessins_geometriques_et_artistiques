@@ -14,7 +14,10 @@ def draw_fractal_star(N: int = 5,
     Y0 = NP / 2.25
     A0 = -AA
     
+    pts = []
+    
     turtle.penup()
+    pts.append((X0, Y0))
     turtle.goto(X0, Y0)
     turtle.pendown()
     
@@ -34,4 +37,7 @@ def draw_fractal_star(N: int = 5,
         X0 = X0 + L0 * math.cos(A0)
         Y0 = Y0 + L0 * math.sin(A0)
         
+        pts.append((X0, Y0))
         turtle.goto(X0, Y0)
+        
+    return pts

@@ -17,7 +17,7 @@ def draw_spiraling_curves(N: int = 2000,
                           L: float = 0.1,
                           AN_func: Callable = default_AN_func,
                           Y_func: Callable = default_Y_func,
-                          NP: int = 480):
+                          NP: int = 480):    
     for i in range(N):
         RR = L ** (i / N)
         AN = AN_func(i, N)
