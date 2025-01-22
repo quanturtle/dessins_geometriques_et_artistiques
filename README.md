@@ -78,6 +78,10 @@ source ./zshrc                              # restart shell
 mamba create -n venv python=3.10
 mamba activate venv
 ```
+Test:
+```
+/opt/homebrew/Caskroom/miniforge/base/envs/venv/bin/python dessins.py regular_star
+```
 
 ## Usage
 Basic usage:
