@@ -62,7 +62,9 @@ The precision required to create these designs amazes me, and I wanted to take i
 
 ## Program structure
 `shapes`: contains the original programs
+
 `designs`: designs using the original programs with modified arguments
+
 `cad`: pipeline to generate a CAD design that can be 3D printed
 
 ## Installation
@@ -94,7 +96,7 @@ The plotting window `NP` is generally set at `480`.
 
 Generate a shape:
 ```
-python dessins.py <command> <kwargs> --animate instant --output_stl false
+python dessins.py <command> <kwargs> --animate instant --output my_design
 ```
 Each shape has `kwargs` that need to be passed or it will default to the original program's arguments.
 
