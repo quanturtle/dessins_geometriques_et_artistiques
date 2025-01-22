@@ -98,8 +98,7 @@ python dessins.py design -N 5
 
 Generate a CAD design:
 ```
-python dessins.py regular_polygon -K 5 --output_stl true
-python dessins.py design -N 5 -o true
+python dessins.py regular_polygon -K 5 --output my_design
 ```
 
 Shapes:

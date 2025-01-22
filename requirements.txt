@@ -1,6 +1,6 @@
 anytree==2.12.1
 asttokens==3.0.0
-build123d==0.7.0
+build123d @ git+https://github.com/gumyr/build123d@0d533d3f1085ee446ceb0b765c0e7eae7aa55bfb
 cadquery-ocp==7.8.1.0
 cadquery_vtk==9.3.1
 decorator==5.1.1
@@ -10,11 +10,11 @@ fonttools==4.55.3
 ipython==8.31.0
 jedi==0.19.2
 matplotlib-inline==0.1.7
-numpy==1.26.4
+numpy==2.2.1
 ocpsvg==0.4.0
 parso==0.8.4
 pexpect==4.9.0
-prompt_toolkit==3.0.50
+prompt_toolkit==3.0.48
 ptyprocess==0.7.0
 pure_eval==0.2.3
 py-lib3mf==2.3.1

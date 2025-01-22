@@ -2,229 +2,11 @@ import sys
 import math
 import turtle
 import argparse
-from typing import Callable
+from typing import Callable, List
 
-from shapes import (
-    draw_regular_polygon,
-    draw_regular_star,
-    draw_composition_1,
-    draw_composition_2,
-    draw_prettygon,
-    draw_horse, 
-    draw_lion, 
-    draw_bird_fish, 
-    draw_smurf,
-    draw_dragon,
-    draw_fractal_star,
-    draw_orbiting_curves,
-    draw_rotating_curves,
-    draw_spiraling_curves,
-    draw_complete_bipartite_graph,
-    draw_linear_modulo,
-    draw_linear_sticks,
-    draw_simple_fractal,
-    draw_simple_fractal_rounded,
-    draw_simple_fractal_deformed,
-    draw_elastic_grid,
-    draw_surface,
-    draw_d3data,
-    draw_d3cube,
-    draw_d3structures,
-)
-
-from designs.polygons_stars import (
-    design_1,
-    design_2,
-    design_3,
-    design_4,
-    design_5,
-    design_6,
-    design_7,
-    design_8,
-    design_9,
-    design_10,
-    design_11,
-    design_12,
-    design_13,
-    design_14,
-    design_15,
-    design_16,
-    design_17,
-    design_18,
-    design_19,
-    design_20,
-    design_21,
-    design_22,
-    design_23,
-    design_24,
-    design_25,
-    design_26,
-    design_27,
-    design_28,
-    design_29,
-    design_30,
-    design_31,
-    design_32,
-    design_33,
-)
-
-from designs.designs_from_data import (
-    design_34,
-    design_35,
-    design_36,
-    design_37,
-    design_38,
-    design_39,
-    design_40,
-    design_41,
-    design_42,
-    design_43,
-)
-
-from designs.folding_paper_dragons import (
-    design_50,
-    design_51,
-    design_52,
-    design_53,
-    design_54,
-    design_55,
-    design_56,
-    design_57,
-    design_58,
-    design_59,
-    design_60,
-    design_61,
-    design_62,
-    design_63,
-    design_64,
-)
-
-from designs.fractal_stars import (
-    design_65,
-    design_66,
-    design_67,
-    design_68,
-    design_69,
-    design_70,
-    design_71,
-    design_72,
-    design_73,
-    design_74,
-    design_75,
-    design_76,
-    design_77,
-)
-
-from designs.curves import (
-    design_78,
-    design_79,
-    design_80,
-    design_81,
-    design_82,
-    design_83,
-    design_84,
-    design_85,
-    design_86,
-    design_87,
-    design_88,
-    design_89,
-    design_90,
-    design_91,
-    design_92,
-    design_93,
-    design_94,
-    design_95,
-    design_96,
-    design_97,
-    design_98,
-    design_99,
-    design_100,
-)
-
-from designs.linear_designs import (
-    design_101,
-    design_102,
-    design_103,
-    design_104,
-    design_105,
-    design_106,
-    design_107,
-    design_108,
-    design_109,
-    design_110,
-    design_111,
-    design_112,
-    design_113,
-    design_114,
-)
-
-from designs.simple_fractals import (
-    design_115,
-    design_116,
-    design_117,
-    design_118,
-    design_119,
-    design_120,
-    design_121,
-    design_122,
-    design_123,
-    design_124,
-    design_125,
-    design_126,
-    design_127,
-    design_128,
-    design_129,
-    design_130,
-    design_131,
-    design_132,
-    design_133,
-    design_134,
-    design_135,
-    design_136,
-    design_137,
-    design_138,
-    design_139,
-    design_140,
-    design_141,
-    design_142,
-    design_143,
-    design_144,
-    design_145,
-    design_146,
-    design_147,
-    design_148,
-    design_149,
-    design_150,
-    design_151,
-    design_152,
-    design_153,
-    design_154,
-    design_155,
-    design_156,
-    design_157,
-    design_158,
-    design_159,
-    design_160,
-    design_161,
-    design_162,
-    design_163,
-)
-
-from designs.elastic_grids import (
-    design_164,
-    design_165,
-    design_166,
-    design_167,
-    design_168,
-    design_169,
-    design_170,
-    design_171,
-    design_172,
-    design_173,
-    design_174,
-    design_175,
-    design_176,
-)
+# from cad import generate_cad
+from shapes import *
+from designs import *
 
 
 def setup_canvas(command: str, NP: int, animation: str = "instant"):
@@ -260,17 +42,18 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
     turtle.home()
 
 
+# pts or None if not yet implemented
 def draw_shape(draw_function, *args, **kwargs):
-    draw_function(*args, **kwargs)
+    return draw_function(*args, **kwargs)
 
 
-def post_processing():
+def post_processing(pts: List = None, name: str = None):
     turtle.hideturtle()
     turtle.update()
     turtle.exitonclick()
 
-    # TODO: add flag for output_stl (True/False) and name if True
-    print("Post-processing step (to be defined).")    
+    # if pts and name:
+    #     generate_cad(pts, name)
 
 
 def main():
@@ -499,8 +282,15 @@ def main():
                              required=False,
                              help="Animation speed (default: instant)")
         
+        subparser.add_argument("--output",
+                                type=str,
+                                default=None,
+                                required=False,
+                                help="Output file (default: None)")
+        
     args = parser.parse_args()
 
+    # begin pipeline
     NP = 480
     
     setup_canvas(args.command, NP, args.animation)
@@ -534,9 +324,9 @@ def main():
         "design": design_164
     }
 
-    draw_shape(shape_functions[args.command])
+    pts = draw_shape(shape_functions[args.command])
 
-    post_processing()
+    post_processing(pts, name=args.command)
     
     return sys.exit(0)
 

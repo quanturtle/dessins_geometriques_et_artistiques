@@ -71,7 +71,7 @@ from .folding_paper_dragons import (
     design_64,
 )
 
-from fractal_stars import (
+from .fractal_stars import (
     design_65,
     design_66,
     design_67,
