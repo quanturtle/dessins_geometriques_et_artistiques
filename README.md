@@ -12,15 +12,9 @@ In 1985, mathematician Jean-Paul Delahaye used a [Canon X-07](https://en.wikiped
 
 The precision required to create these designs amazes me, and I wanted to take it a step further by bringing them into the real world in a unique way. My goal was to transform these equations and programs into CAD models, enabling me to 3D print these shapes and capture the same mesmerizing quality in a tangible form.
 
-![8-point star Turtle](/img/star8_turtle.png)
-
-![8-point star CAD](/img/star8_cad.png)
-
-![8-point star slicer](/img/star8_slicer.png)
-
-![8-point star printing](/img/star8_printing.png)
-
-![8-point star printed](/img/star8_printed.png)
+| Turtle    | CAD | Slicer | Printing | Printed |
+| -------- | ------- | -------- | -------- | -------- |
+| ![8-point star Turtle](/img/star8_turtle.png)  | ![8-point star CAD](/img/star8_cad.png)    | ![8-point star slicer](/img/star8_slicer.png) | ![8-point star printing](/img/star8_printing.png) | ![8-point star printed](/img/star8_printed.png)
 
 ## Index
 1. [Polygones, étoiles, etc.](./shapes/polygons_stars/)
