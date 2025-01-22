@@ -4,7 +4,7 @@ import turtle
 import argparse
 from typing import Callable, List
 
-# from cad import generate_cad
+from cad import generate_cad
 from shapes import *
 from designs import *
 
@@ -52,8 +52,8 @@ def post_processing(pts: List = None, name: str = None):
     turtle.update()
     turtle.exitonclick()
 
-    # if pts and name:
-    #     generate_cad(pts, name)
+    if pts and name:
+        generate_cad(pts, name)
 
 
 def main():
@@ -326,7 +326,7 @@ def main():
 
     pts = draw_shape(shape_functions[args.command])
 
-    post_processing(pts, name=args.command)
+    post_processing(pts, name=args.output)
     
     return sys.exit(0)
 
