@@ -8,7 +8,7 @@ def generate_cad(pts: List, name: str):
             with BuildLine() as l:
                 l1 = Polyline(*pts)
             
-            trace(line_width=2.5)
+            trace(line_width=3.5)
         
         extrude(amount=10)
 
