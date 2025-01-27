@@ -25,7 +25,11 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
     elif command == 'd3data':
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, 1.5*NP, 1.5*NP)
-
+        
+    elif command in ['design_80', 'design_82', 'design_83', 'design_84',]:
+        turtle.setup(width=550, height=800)
+        turtle.setworldcoordinates(0, 0, 550, 800)
+        
     else:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, NP, NP)
@@ -264,10 +268,42 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        "design": {
+        "design_78": {
             "help": "Draw a design.",
             "args": {}
-        }
+        },
+        "design_79": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_80": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_81": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_82": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_83": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_84": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_85": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_86": {
+            "help": "Draw a design.",
+            "args": {}
+        },
     }
 
     for cmd_name, cmd_config in command_parsers.items():
@@ -321,7 +357,15 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design": design_164
+        "design_78": design_78,
+        "design_79": design_79,
+        "design_80": design_80,
+        "design_81": design_81,
+        "design_82": design_82,
+        "design_83": design_83,
+        "design_84": design_84,
+        "design_85": design_85,
+        "design_86": design_86,
     }
 
     pts = draw_shape(shape_functions[args.command])
