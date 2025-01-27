@@ -1,7 +1,7 @@
 import math
 from shapes import draw_orbiting_curves
 
-#TODO
+
 def design_78():
     draw_orbiting_curves(N=2000,
                          T1=2,

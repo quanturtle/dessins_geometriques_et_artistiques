@@ -26,7 +26,7 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, 1.5*NP, 1.5*NP)
         
-    elif command in ['design_80', 'design_82', 'design_83', 'design_84',]:
+    elif command in ['design_80', 'design_82', 'design_83', 'design_84', 'design_92', 'design_93', 'design_94', 'design_96']:
         turtle.setup(width=550, height=800)
         turtle.setworldcoordinates(0, 0, 550, 800)
         
@@ -268,39 +268,43 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        "design_78": {
+        "design_87": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_79": {
+        "design_88": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_80": {
+        "design_89": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_81": {
+        "design_90": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_82": {
+        "design_91": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_83": {
+        "design_92": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_84": {
+        "design_93": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_85": {
+        "design_94": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_86": {
+        "design_95": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_96": {
             "help": "Draw a design.",
             "args": {}
         },
@@ -357,15 +361,16 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design_78": design_78,
-        "design_79": design_79,
-        "design_80": design_80,
-        "design_81": design_81,
-        "design_82": design_82,
-        "design_83": design_83,
-        "design_84": design_84,
-        "design_85": design_85,
-        "design_86": design_86,
+        "design_87": design_87,
+        "design_88": design_88,
+        "design_89": design_89,
+        "design_90": design_90,
+        "design_91": design_91,
+        "design_92": design_92,
+        "design_93": design_93,
+        "design_94": design_94,
+        "design_95": design_95,
+        "design_96": design_96,
     }
 
     pts = draw_shape(shape_functions[args.command])
