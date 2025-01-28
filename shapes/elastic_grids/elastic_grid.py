@@ -1,31 +1,42 @@
 import math
 import turtle
-from typing import Callable
+from typing import Callable, Tuple
 
-
-# TODO: factor out these two functions
-# DI_func
-def default_deformation_subroutine(DI: float) -> float:
+# TODO: refactor elastic grids to compute a deformation subroutine
+def default_deformation_subroutine(DI: float):
     if DI < 1:
         return DI ** 0.3
     
     return DI
 
 
-# AN_func
-# def default_AN_func()
-
-
-# add L_range, I_range, J_range
-# X_strecht, Y_strecht
-def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_subroutine, 
-                      NP: int = 480):
-    def sgn(x):
+def sgn(x):
         return 1 if x > 0 else -1 if x < 0 else 0
 
-    for L in range(2):
-        for I in range(21):
-            for J in range(21):
+
+def default_AN_func(X: float, Y: float, DI: float) -> float:
+    if abs(X) > 1e-12:
+        AN = math.atan(Y / X)
+
+    else:
+        AN = (math.pi / 2) * sgn(Y)
+
+    if X < 0:
+        AN += math.pi
+    
+    return AN
+
+
+# X_strecht, Y_strecht
+def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_subroutine,
+                      AN_func: Callable = default_AN_func,
+                      L_range: int = 2,
+                      I_range: int = 21,
+                      J_range: int = 21,
+                      NP: int = 480):
+    for L in range(L_range):
+        for I in range(I_range):
+            for J in range(J_range):
                 X = I / 10 - 1
                 Y = J / 10 - 1
 
@@ -34,17 +45,9 @@ def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_sub
 
                 DI = math.sqrt(X * X + Y * Y)
 
-                if abs(X) > 1e-12:
-                    AN = math.atan(Y / X)
-
-                else:
-                    AN = (math.pi / 2) * sgn(Y)
-
-                if X < 0:
-                    AN += math.pi
-
+                AN = AN_func(X, Y, DI)
                 DI = deformation_subroutine(DI)
-
+                
                 X = DI * math.cos(AN)
                 Y = DI * math.sin(AN)
 

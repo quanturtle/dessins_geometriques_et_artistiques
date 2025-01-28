@@ -30,6 +30,15 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
         turtle.setup(width=550, height=800)
         turtle.setworldcoordinates(0, 0, 550, 800)
         
+    elif command in ['design_35', 'design_36', 'design_37', 'design_39', 'design_40']:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(-NP, -NP, NP, NP)
+        
+    # TODO: fix presentation
+    elif command in ['design_38']:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(-0.5*NP, -0.5*NP, 1.5*NP, 1.5*NP)
+        
     else:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, NP, NP)
@@ -268,19 +277,95 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        "design_97": {
+        "design_34": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_35": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_36": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_37": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_38": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_39": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_40": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_41": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_42": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_43": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_164": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_98": {
+        "design_165": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_99": {
+        "design_166": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_100": {
+        "design_167": {
+            "help": "Draw a design.",
+            "args": {}
+        },      
+        "design_168": {
+            "help": "Draw a design.",
+            "args": {}
+        },        
+        "design_169": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_170": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_171": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_172": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_173": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_174": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_175": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_176": {
             "help": "Draw a design.",
             "args": {}
         },
@@ -337,10 +422,29 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design_97": design_97,
-        "design_98": design_98,
-        "design_99": design_99,
-        "design_100": design_100,
+        "design_34": design_34,
+        "design_35": design_35,
+        "design_36": design_36,
+        "design_37": design_37,
+        "design_38": design_38,
+        "design_39": design_39,
+        "design_40": design_40,
+        "design_41": design_41,
+        "design_42": design_42,
+        "design_43": design_43,
+        "design_164": design_164,
+        "design_165": design_165,
+        "design_166": design_166,
+        "design_167": design_167,
+        "design_168": design_168,
+        "design_169": design_169,
+        "design_170": design_170,
+        "design_171": design_171,
+        "design_172": design_172,
+        "design_173": design_173,
+        "design_174": design_174,
+        "design_175": design_175,
+        "design_176": design_176,
     }
 
     pts = draw_shape(shape_functions[args.command])

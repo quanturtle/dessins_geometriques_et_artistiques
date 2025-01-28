@@ -1,3 +1,4 @@
+import math
 from shapes import draw_elastic_grid
 
 #TODO
@@ -6,11 +7,13 @@ def design_164():
 
 
 def design_165():
-    draw_elastic_grid()
-
+    draw_elastic_grid(deformation_subroutine=
+                        lambda DI: DI ** 3 if DI < 1 else DI
+                    )
 
 def design_166():
     draw_elastic_grid()
+
 
 
 def design_167():
