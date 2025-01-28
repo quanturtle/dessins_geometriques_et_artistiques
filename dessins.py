@@ -288,62 +288,6 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        "design_34": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_35": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_36": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_37": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_38": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_39": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_40": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_41": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_42": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_43": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_44": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_45": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_46": {
-            "help": "Draw a design.",
-            "args": {},
-        },
-        "design_47": {
-            "help": "Draw a design.",
-            "args": {},
-        },
         "design_164": {
             "help": "Draw a design.",
             "args": {}
@@ -449,20 +393,6 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design_34": design_34,
-        "design_35": design_35,
-        "design_36": design_36,
-        "design_37": design_37,
-        "design_38": design_38,
-        "design_39": design_39,
-        "design_40": design_40,
-        "design_41": design_41,
-        "design_42": design_42,
-        "design_43": design_43,
-        "design_44": design_44,
-        "design_45": design_45,
-        "design_46": design_46,
-        "design_47": design_47,
         "design_164": design_164,
         "design_165": design_165,
         "design_166": design_166,

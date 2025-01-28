@@ -28,30 +28,28 @@ def draw_smurf(NP: int = 480):
         2000
     ]
     
-    data_index = 0
+    i = 0
     B1 = 0
     
-    def read_data():
-        nonlocal data_index
-        value = DATA[data_index]
-        data_index += 1
-        return value
-    
-    turtle.clear()
-    turtle.penup()
-    turtle.goto(NP/25, NP/25)  # Initial translation
-    
     while True:
-        A = read_data()
+        A = DATA[i]
+        i += 1
         
         if A == 2000:
             break
         
         if A == 1000:
             B1 = 0
-            A = read_data()
-        
-        B = read_data()
+            A = DATA[i]
+            i += 1
+            
+            B = DATA[i]
+            i += 1
+
+        else:
+            B = DATA[i % len(DATA)]
+            i += 1
+
         
         X = int(NP * A / 65)
         Y = int(NP * B / 65)
