@@ -34,6 +34,10 @@ DATA = [
 ]
 
 
+def sgn(x):
+    return 1 if x > 0 else -1 if x < 0 else 0
+
+
 def design_34():
     draw_horse()
                 
@@ -277,14 +281,132 @@ def design_40(NP: int = 480):
                     turtle.pendown()
                     turtle.goto(X - NP // 2, Y - NP // 2)
     
+
+# TODO: fix here
+def design_41(NP: int = 480):
+    i = 0
+    B1 = 0
+
+    N = 4
+    for I in range(-N, N+1):
+        for J in range(-I, I+1):
+            while True:
+                A = DATA[i % len(DATA)]
+                i += 1
+
+                if A == 2000:
+                    break
+
+                if A == 1000:
+                    B1 = 0
+                    A = DATA[i % len(DATA)]
+                    i += 1
+                    B = DATA[i % len(DATA)]
+                    i += 1
+                
+                else:
+                    B = DATA[i % len(DATA)]
+                    i += 1
+
+                XX = (A+ J*20 -20) / 100
+                YY = (B+ I*20 -20) / 100
+                
+                X = int(NP/2 * (XX+1) * abs(XX+1))
+                Y = int(NP/2 * (YY+1) * abs(YY+1))
+
+                if B1 == 0:
+                    turtle.penup()
+                    turtle.goto(X - NP // 2, Y - NP // 2)
+                    B1 = 1
+                
+                else:
+                    turtle.pendown()
+                    turtle.goto(X - NP // 2, Y - NP // 2)
     
-def design_41():
-    draw_horse()
+
+# TODO: fix here
+def design_42(NP: int = 480):
+    i = 0
+    B1 = 0
+
+    N = 4
+    for I in range(-N, N+1):
+        for J in range(-I, I+1):
+            while True:
+                A = DATA[i % len(DATA)]
+                i += 1
+
+                if A == 2000:
+                    break
+
+                if A == 1000:
+                    B1 = 0
+                    A = DATA[i % len(DATA)]
+                    i += 1
+                    B = DATA[i % len(DATA)]
+                    i += 1
+                
+                else:
+                    B = DATA[i % len(DATA)]
+                    i += 1
+                
+                X = NP * A+J*20 -20 / 80
+                Y = NP * B+I*20 -20 / 80
+                
+                DI = math.sqrt(X * X + Y * Y)
+                
+                if X != 0:
+                    AN = math.atan(Y / X) + math.pi * (1 - sgn(X)) / 2
+                
+                else:
+                    AN = math.pi/2 * sgn(Y)
+
+                if B1 == 0:
+                    turtle.penup()
+                    turtle.goto(X - NP // 2, Y - NP // 2)
+                    B1 = 1
+                
+                else:
+                    turtle.pendown()
+                    turtle.goto(X - NP // 2, Y - NP // 2)
     
     
-def design_42():
-    draw_horse()
-    
-    
-def design_43():
-    draw_horse()
+def design_43(NP: int = 480):
+    i = 0
+    B1 = 0
+
+    N = 4
+    for I in range(-N, N+1):
+        for J in range(-N, N+1):
+            while True:
+                A = DATA[i % len(DATA)]
+                i += 1
+
+                if A == 2000:
+                    break
+
+                if A == 1000:
+                    B1 = 0
+                    A = DATA[i % len(DATA)]
+                    i += 1
+                    B = DATA[i % len(DATA)]
+                    i += 1
+                
+                else:
+                    B = DATA[i % len(DATA)]
+                    i += 1
+                
+                XX = A+J*20 -20 / 1000
+                YY = B+I*20 -20 / 1000
+                
+                X = int((abs(XX)**0.7*sgn(XX)+1) * NP/2)
+                Y = int((abs(YY)**0.7*sgn(YY)+1) * NP/2)
+
+                if B1 == 0:
+                    turtle.penup()
+                    turtle.goto(X - NP // 2, Y - NP // 2)
+                    B1 = 1
+                
+                else:
+                    turtle.pendown()
+                    turtle.goto(X - NP // 2, Y - NP // 2)

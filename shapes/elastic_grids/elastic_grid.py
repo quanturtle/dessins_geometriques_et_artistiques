@@ -11,7 +11,7 @@ def default_deformation_subroutine(DI: float):
 
 
 def sgn(x):
-        return 1 if x > 0 else -1 if x < 0 else 0
+    return 1 if x > 0 else -1 if x < 0 else 0
 
 
 def default_AN_func(X: float, Y: float, DI: float) -> float:

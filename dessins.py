@@ -30,11 +30,11 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
         turtle.setup(width=550, height=800)
         turtle.setworldcoordinates(0, 0, 550, 800)
         
-    elif command in ['design_35', 'design_36', 'design_37', 'design_39', 'design_40']:
+    elif command in ['design_35', 'design_36', 'design_37', 'design_39', 'design_40', 'design_41']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-NP, -NP, NP, NP)
         
-    # TODO: fix presentation
+    # TODO: fix presentation, design_38, design_41, design_42, design_43
     elif command in ['design_38']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-0.5*NP, -0.5*NP, 1.5*NP, 1.5*NP)
