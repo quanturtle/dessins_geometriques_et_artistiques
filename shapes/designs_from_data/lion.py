@@ -23,8 +23,11 @@ def draw_lion(NP: int = 480):
 
         if A == 1000:
             B1 = 0
-            A = DATA[i]; i += 1
-            B = DATA[i]; i += 1
+            A = DATA[i] 
+            i += 1
+            
+            B = DATA[i]
+            i += 1
 
         else:
             B = DATA[i]

@@ -317,6 +317,14 @@ def main():
             "help": "Draw a design.",
             "args": {},
         },
+        "design_44": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_45": {
+            "help": "Draw a design.",
+            "args": {},
+        },
         "design_164": {
             "help": "Draw a design.",
             "args": {}
@@ -432,6 +440,8 @@ def main():
         "design_41": design_41,
         "design_42": design_42,
         "design_43": design_43,
+        "design_44": design_44,
+        "design_45": design_45,
         "design_164": design_164,
         "design_165": design_165,
         "design_166": design_166,
