@@ -26,18 +26,29 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, 1.5*NP, 1.5*NP)
         
-    elif command in ['design_80', 'design_82', 'design_83', 'design_84', 'design_92', 'design_93', 'design_94', 'design_96', 'design_99', 'design_100']:
-        turtle.setup(width=550, height=800)
-        turtle.setworldcoordinates(0, 0, 550, 800)
-        
     elif command in ['design_35', 'design_36', 'design_37', 'design_39', 'design_40', 'design_41']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-NP, -NP, NP, NP)
-        
+    
     # TODO: fix presentation, design_38, design_41, design_42, design_43
     elif command in ['design_38']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-0.5*NP, -0.5*NP, 1.5*NP, 1.5*NP)
+    
+    elif command in ['design_45']:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(0, 0, 1.1*NP, 1.1*NP)
+    
+    # TODO: could be better
+    elif command in ['design_46', 'design_47']:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(-1.3*NP, -1.3*NP, 1.3*NP, 1.3*NP)
+    
+    elif command in ['design_80', 'design_82', 'design_83', 'design_84', 'design_92', 'design_93', 'design_94', 'design_96', 'design_99', 'design_100']:
+        turtle.setup(width=550, height=800)
+        turtle.setworldcoordinates(0, 0, 550, 800)
+
+    
         
     else:
         turtle.setup(width=NP, height=NP)
@@ -325,6 +336,14 @@ def main():
             "help": "Draw a design.",
             "args": {},
         },
+        "design_46": {
+            "help": "Draw a design.",
+            "args": {},
+        },
+        "design_47": {
+            "help": "Draw a design.",
+            "args": {},
+        },
         "design_164": {
             "help": "Draw a design.",
             "args": {}
@@ -442,6 +461,8 @@ def main():
         "design_43": design_43,
         "design_44": design_44,
         "design_45": design_45,
+        "design_46": design_46,
+        "design_47": design_47,
         "design_164": design_164,
         "design_165": design_165,
         "design_166": design_166,
