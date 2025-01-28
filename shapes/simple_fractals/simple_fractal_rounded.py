@@ -1,8 +1,16 @@
 import math
 import turtle
+from typing import List
 
-# TODO: fix this
-def draw_rounded_corner(X0, Y0, X1, Y1, X2, Y2, S, I):
+
+def draw_rounded_corner(X0: int, 
+                        Y0: int, 
+                        X1: int, 
+                        Y1: int, 
+                        X2: int, 
+                        Y2: int, 
+                        S: int, 
+                        I: int):
     UX = X1 - X0
     UY = Y1 - Y0
     WX = X2 - X1
@@ -28,23 +36,10 @@ def draw_simple_fractal_rounded(M: int = 1,
                                 N: int = 7, 
                                 K: int = 2, 
                                 S: int = 5,
-                                X: list = None,
-                                Y: list = None,
-                                L_array: list = None,
-                                A_array: list = None,
-                                NP: int = 480):
-    if X is None:
-        X = [0, 1]
-    
-    if Y is None:
-        Y = [NP, -NP]
-        
-    if L_array is None:
-        L_array = [1/2, 1/4, 1/4, 1/4, 1/4, 1/2, 1/2]
-    
-    if A_array is None:
-        A_array = [0, math.pi / 2, -math.pi, 0, math.pi / 2, -math.pi / 2, 0]
-
+                                X: List = [0, 1],
+                                Y: List = [480, -480],
+                                L: List = [1/2, 1/4, 1/4, 1/4, 1/4, 1/2, 1/2],
+                                A: List = [0, math.pi / 2, -math.pi, 0, math.pi / 2, -math.pi / 2, 0]):
     for II in range(M):
         XD = X[II]
         YD = Y[II]
@@ -59,7 +54,7 @@ def draw_simple_fractal_rounded(M: int = 1,
         Y2 = Y0
 
         if XA != XD:
-            A0 = math.atan2(YA - YD, XA - XD)
+            A0 = math.atan((YA - YD)/(XA - XD))
 
         else:
             A0 = math.pi / 2 * math.copysign(1, YA - YD)
@@ -77,8 +72,8 @@ def draw_simple_fractal_rounded(M: int = 1,
             for J in range(K - 1, -1, -1):
                 R = N**J
                 T2 = T // R
-                AA += A_array[T2]
-                LL *= L_array[T2]
+                AA += A[T2]
+                LL *= L[T2]
                 T -= T2 * R
 
             X0 = X1

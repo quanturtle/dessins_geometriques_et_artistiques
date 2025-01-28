@@ -183,4 +183,4 @@ def design_135():
                         X=[480/2, 480/2, 480/2],
                         Y=[480*.25, 480*.75, 480*.25],
                         L=[1/math.sqrt(2), 1/math.sqrt(2)],
-                        A=[math.pi/4,-math.pi/4])
+                        A=[math.pi/4, -math.pi/4])

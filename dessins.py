@@ -51,8 +51,11 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
     elif command in ['design_115', 'design_116', 'design_117']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, 1.2*NP, 1.2*NP)
-    
         
+    elif command in ['design_136']:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(-NP, -NP, NP, NP)
+    
     else:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, NP, NP)
@@ -291,87 +294,67 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        "design_115": {
+        "design_136": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_116": {
+        "design_137": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_117": {
+        "design_138": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_118": {
+        "design_139": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_119": {
+        "design_140": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_120": {
+        "design_141": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_121": {
+        "design_142": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_122": {
+        "design_143": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_123": {
+        "design_144": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_124": {
+        "design_145": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_125": {
+        "design_146": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_126": {
+        "design_147": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_127": {
+        "design_148": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_128": {
+        "design_149": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_129": {
+        "design_150": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_130": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_131": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_132": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_133": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_134": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_135": {
+        "design_151": {
             "help": "Draw a design.",
             "args": {}
         },
@@ -481,27 +464,22 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design_115": design_115,
-        "design_116": design_116,
-        "design_117": design_117,
-        "design_118": design_118,
-        "design_119": design_119,
-        "design_120": design_120,
-        "design_121": design_121,
-        "design_122": design_122,
-        "design_123": design_123,
-        "design_124": design_124,
-        "design_125": design_125,
-        "design_126": design_126,
-        "design_127": design_127,
-        "design_128": design_128,
-        "design_129": design_129,
-        "design_130": design_130,
-        "design_131": design_131,
-        "design_132": design_132,
-        "design_133": design_133,
-        "design_134": design_134,
-        "design_135": design_135,
+        "design_136": design_136,
+        "design_137": design_137,
+        "design_138": design_138,
+        "design_139": design_139,
+        "design_140": design_140,
+        "design_141": design_141,
+        "design_142": design_142,
+        "design_143": design_143,
+        "design_144": design_144,
+        "design_145": design_145,
+        "design_146": design_146,
+        "design_147": design_147,
+        "design_148": design_148,
+        "design_149": design_149,
+        "design_150": design_150,
+        "design_151": design_151,
         "design_164": design_164,
         "design_165": design_165,
         "design_166": design_166,
