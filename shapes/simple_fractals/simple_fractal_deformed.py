@@ -1,24 +1,24 @@
 import math
 import turtle
-from typing import Callable
+from typing import List, Tuple, Callable
 
-# TODO: fix this
 def default_deformation_subroutine(X0: int, 
-                                   Y0: int, 
-                                   NP: int = 480):
-    XH = X0 / NP * 2 - 1
-    YH = Y0 / NP * 2 - 1
-    DH = math.sqrt(XH * XH + YH * YH)
-
-    if XH != 0:
-        AH = math.atan2(YH, XH)
+                                   Y0: int,
+                                   NP: int = 480) -> Tuple[int, int]:
+    XH = X0/NP*2 - 1
+    YH = Y0/NP*2 - 1
+    DH = math.sqrt(XH*XH + YH*YH)
     
+    if XH != 0:
+        AH = math.atan(YH/XH) - math.pi*(math.copysign(1, XH)-1)/2*math.copysign(1, YH)
     else:
-        AH = math.pi / 2 * math.copysign(1, YH)
-
-    DH = DH**2
-    X1 = int((DH * math.cos(AH) + 1) * NP / 2)
-    Y1 = int((DH * math.sin(AH) + 1) * NP / 2)
+        AH = math.pi/2*math.copysign(1, YH)
+        
+    DH = pow(DH, 2)
+    AH = AH
+    
+    X1 = int((DH*math.cos(AH) + 1)*NP/2)
+    Y1 = int((DH*math.sin(AH) + 1)*NP/2)
 
     return X1, Y1
 
@@ -26,62 +26,58 @@ def default_deformation_subroutine(X0: int,
 def draw_simple_fractal_deformed(M: int = 3,
                                  N: int = 4,
                                  K: int = 4,
-                                 deformation_subroutine: Callable = default_deformation_subroutine,
-                                 NP: int = 480):
-    X = [0] * (M + 1)
-    Y = [0] * (M + 1)
-    L_array = [0] * N
-    A_array = [0] * N
-
-    for IJ in range(4):
-        X[IJ] = NP / 2 * (1 + math.sin(2 * IJ * math.pi / 3))
-        Y[IJ] = NP / 2 * (1 + math.cos(2 * IJ * math.pi / 3))
-
-    for idx in range(N):
-        L_array[idx] = 1 / 3
-
-    A_array = [0, math.pi/3, -math.pi/3, 0]
-
+                                 deformation_func: Callable = default_deformation_subroutine,
+                                 NP: int = 480) -> List[Tuple[int, int]]:
+    pts = []
+    
+    X = [NP/2 * (1 + math.sin(2 * i * math.pi / 3)) for i in range(M+1)]
+    Y = [NP/2 * (1 + math.cos(2 * i * math.pi / 3)) for i in range(M+1)]
+    L = [1/3] * N
+    A = [0, math.pi/3, -math.pi/3, 0][:N]
+    
     for II in range(M):
-        XD = X[II]
-        YD = Y[II]
-        XA = X[II + 1]
-        YA = Y[II + 1]
-
-        X0 = XD
-        Y0 = YD
-
-        X1, Y1 = deformation_subroutine(X0, Y0, NP)
+        XD, YD = X[II], Y[II]
+        XA, YA = X[II + 1], Y[II + 1]
+        X0, Y0 = XD, YD
+        
+        X1, Y1 = deformation_func(X0, Y0, NP)
         
         turtle.penup()
         turtle.goto(X1, Y1)
         turtle.pendown()
-
+        pts.append((X1, Y1))
+        
         if XA != XD:
-            A0 = math.atan2(YA - YD, XA - XD)
+            A0 = math.atan((YA - YD)/(XA - XD))
         
         else:
-            A0 = math.pi / 2 * math.copysign(1, YA - YD)
+            A0 = math.pi/2 * math.copysign(1, YA - YD)
         
         if (XA - XD) < 0:
             A0 += math.pi
-
+            
         L0 = math.sqrt((XA - XD)**2 + (YA - YD)**2)
-
-        for I in range(0, N**K):
-            LL = L0
-            AA = A0
-            T = I
-
-            for J in range(K - 1, -1, -1):
+        
+        for I in range(N**K):
+            LL, AA = L0, A0
+            T1 = I
+            
+            for J in range(K-1, -1, -1):
                 R = N**J
-                T2 = T // R
-                AA += A_array[T2]
-                LL *= L_array[T2]
-                T -= T2 * R
-
+                T2 = T1 // R
+        
+                if T2 < N:
+                    AA += A[T2]
+                    LL *= L[T2]
+        
+                T1 -= T2 * R
+                
             X0 = X0 + LL * math.cos(AA)
             Y0 = Y0 + LL * math.sin(AA)
-
-            X1, Y1 = deformation_subroutine(X0, Y0, NP)
+        
+            X1, Y1 = deformation_func(X0, Y0, NP)
+        
             turtle.goto(X1, Y1)
+            pts.append((X1, Y1))
+            
+    return pts

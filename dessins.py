@@ -294,71 +294,54 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        "design_136": {
+        "design_152": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_137": {
+        "design_153": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_138": {
+        "design_154": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_139": {
+        "design_155": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_140": {
+        "design_156": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_141": {
+        "design_157": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_142": {
+        "design_158": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_143": {
+        "design_159": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_144": {
+        "design_160": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_145": {
+        "design_161": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_146": {
+        "design_162": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_147": {
+        "design_163": {
             "help": "Draw a design.",
             "args": {}
         },
-        "design_148": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_149": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_150": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_151": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        
         "design_164": {
             "help": "Draw a design.",
             "args": {}
@@ -464,22 +447,19 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design_136": design_136,
-        "design_137": design_137,
-        "design_138": design_138,
-        "design_139": design_139,
-        "design_140": design_140,
-        "design_141": design_141,
-        "design_142": design_142,
-        "design_143": design_143,
-        "design_144": design_144,
-        "design_145": design_145,
-        "design_146": design_146,
-        "design_147": design_147,
-        "design_148": design_148,
-        "design_149": design_149,
-        "design_150": design_150,
-        "design_151": design_151,
+        "design_152": design_152,
+        "design_153": design_153,
+        "design_154": design_154,
+        "design_155": design_155,
+        "design_156": design_156,
+        "design_157": design_157,
+        "design_158": design_158,
+        "design_159": design_159,
+        "design_160": design_160,
+        "design_161": design_161,
+        "design_162": design_162,
+        "design_163": design_163,
+        
         "design_164": design_164,
         "design_165": design_165,
         "design_166": design_166,
