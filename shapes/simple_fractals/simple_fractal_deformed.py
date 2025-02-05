@@ -22,18 +22,26 @@ def default_deformation_subroutine(X0: int,
 
     return X1, Y1
 
-
+    
 def draw_simple_fractal_deformed(M: int = 3,
                                  N: int = 4,
                                  K: int = 4,
+                                 X: List[int] = None,
+                                 Y: List[int] = None,
+                                 L: List[float] = None,
+                                 A: List[float] = None,
                                  deformation_func: Callable = default_deformation_subroutine,
                                  NP: int = 480) -> List[Tuple[int, int]]:
     pts = []
-    
-    X = [NP/2 * (1 + math.sin(2 * i * math.pi / 3)) for i in range(M+1)]
-    Y = [NP/2 * (1 + math.cos(2 * i * math.pi / 3)) for i in range(M+1)]
-    L = [1/3] * N
-    A = [0, math.pi/3, -math.pi/3, 0][:N]
+
+    if X is None:    
+        X = [NP/2 * (1 + math.sin(2 * i * math.pi / 3)) for i in range(M+1)]
+    if Y is None:
+        Y = [NP/2 * (1 + math.cos(2 * i * math.pi / 3)) for i in range(M+1)]
+    if L is None:
+        L = [1/3] * N
+    if A is None:
+        A = [0, math.pi/3, -math.pi/3, 0][:N]
     
     for II in range(M):
         XD, YD = X[II], Y[II]

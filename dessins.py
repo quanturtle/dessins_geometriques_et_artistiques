@@ -294,38 +294,6 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
-        "design_152": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_153": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_154": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_155": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_156": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_157": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_158": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_159": {
-            "help": "Draw a design.",
-            "args": {}
-        },
         "design_160": {
             "help": "Draw a design.",
             "args": {}
@@ -403,16 +371,16 @@ def main():
             subparser.add_argument(arg_name, **arg_config)
         
         subparser.add_argument("--animation", 
-                             choices=["fast", "fastest", "instant"],
-                             default="instant",
-                             required=False,
-                             help="Animation speed (default: instant)")
+                               choices=["fast", "fastest", "instant"],
+                               default="instant",
+                               required=False,
+                               help="Animation speed (default: instant)")
         
         subparser.add_argument("--output",
-                                type=str,
-                                default=None,
-                                required=False,
-                                help="Output file (default: None)")
+                               type=str,
+                               default=None,
+                               required=False,
+                               help="Output file (default: None)")
         
     args = parser.parse_args()
 
@@ -447,14 +415,6 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design_152": design_152,
-        "design_153": design_153,
-        "design_154": design_154,
-        "design_155": design_155,
-        "design_156": design_156,
-        "design_157": design_157,
-        "design_158": design_158,
-        "design_159": design_159,
         "design_160": design_160,
         "design_161": design_161,
         "design_162": design_162,
