@@ -43,7 +43,20 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
     elif command in ['design_46', 'design_47']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-1.3*NP, -1.3*NP, 1.3*NP, 1.3*NP)
-    
+        
+    elif command in ['design_50', 'design_51', 'design_52']:
+        turtle.setup(width=550, height=800)
+        turtle.setworldcoordinates(0, 0, 550, 800)
+        
+    # TODO: could be better
+    elif command in ['design_53', 'design_55', 'design_57', 'design_58', 'design_59', 'design_60', 'design_61']:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(-NP, -NP, NP, NP)
+        
+    elif command in ['design_54', 'design_56']:
+        turtle.setup(width=NP, height=NP)
+        turtle.setworldcoordinates(-3*NP, -3*NP, 3*NP, 3*NP)
+        
     elif command in ['design_80', 'design_82', 'design_83', 'design_84', 'design_92', 'design_93', 'design_94', 'design_96', 'design_99', 'design_100']:
         turtle.setup(width=550, height=800)
         turtle.setworldcoordinates(0, 0, 550, 800)
@@ -294,6 +307,66 @@ def main():
                 "-NP": {"type": int, "default": 480, "required": False, "help": "Window size"},
             }
         },
+        "design_50": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_51": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_52": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_53": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_54": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_55": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_56": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_57": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_58": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_59": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_60": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_61": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_62": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_63": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_64": {
+            "help": "Draw a design.",
+            "args": {}
+        },
         "design_160": {
             "help": "Draw a design.",
             "args": {}
@@ -415,11 +488,21 @@ def main():
         "d3data": draw_d3data,
         "d3cube": draw_d3cube,
         "d3structures": draw_d3structures,
-        "design_160": design_160,
-        "design_161": design_161,
-        "design_162": design_162,
-        "design_163": design_163,
-        
+        "design_50": design_50,
+        "design_51": design_51,
+        "design_52": design_52,
+        "design_53": design_53,
+        "design_54": design_54,
+        "design_55": design_55,
+        "design_56": design_56,
+        "design_57": design_57,
+        "design_58": design_58,
+        "design_59": design_59,
+        "design_60": design_60,
+        "design_61": design_61,
+        "design_62": design_62,
+        "design_63": design_63,
+        "design_64": design_64,
         "design_164": design_164,
         "design_165": design_165,
         "design_166": design_166,
