@@ -434,7 +434,6 @@ def main():
         "design_61": design_61,
         "design_62": design_62,
         "design_63": design_63,
-        "design_64": design_64,
     }
 
     pts = draw_shape(shape_functions[args.command])
