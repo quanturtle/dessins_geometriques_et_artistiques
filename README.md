@@ -66,26 +66,19 @@ The precision required to create these designs amazes me, and I wanted to take i
 * `cad`: pipeline to generate a CAD design that can be 3D printed
 
 ## Installation
-Install using `miniforge`:
+Install using `uv`:
+```sh
+uv init
+uv sync # or uv pip install -r requirements.txt
 ```
-brew install --cask anaconda
-brew install miniforge
-```
-`build123d` recommends using `python 3.10`:
-```
-mamba init $(basename "$SHELL")
-source ./zshrc                              # restart shell
-mamba create -n venv python=3.10
-mamba activate venv
-```
-Test:
-```
-/opt/homebrew/Caskroom/miniforge/base/envs/venv/bin/python dessins.py regular_star
+Test everything is working:
+```sh
+uv run python dessins.py dragon
 ```
 
 ## Usage
 Basic usage:
-```
+```sh
 python dessins.py <command>
 ```
 where `command` is a shape (like `regular_polygon` or `dragon`).
@@ -93,33 +86,33 @@ This will run the standard program from the book.
 The plotting window `NP` is generally set at `480`.
 
 Generate a shape:
-```
+```sh
 python dessins.py <command> <kwargs> --animate instant --output my_design
 ```
-```
+```sh
 --animate: str                      -default: instant, choices=[fast, fastest, instant]
 --output:  Optional[str] = None     -default: None (no .stl output)
 ```
 Each shape has `kwargs` that need to be passed or it will default to the original program's arguments.
 
 Examples
-```
+```sh
 python dessins.py regular_polygon       # draw standard shape
 python dessins.py regular_polygon -K 8  # specify parameter for shape
 ```
-```
+```sh
 python dessins.py dragon
 python dessins.py dragon -N 8
 python dessins.py dragon -N 12
 ```
 
 Generate a design:
-```
+```sh
 python dessins.py design -N 5
 ```
 
 Generate a CAD design:
-```
+```sh
 python dessins.py regular_polygon -K 5 --output my_design
 ```
 
