@@ -8,7 +8,8 @@ def draw_complete_bipartite_graph(N: int = 10,
                                   XC: int = 480,
                                   YC: int = 0,
                                   XD: int = 480,
-                                  YD: int = 480):
+                                  YD: int = 480,
+                                  NP: int = 480):
     for i in range(N + 1):
         X1 = (i * XA + (N - i) * XB) / N
         Y1 = (i * YA + (N - i) * YB) / N

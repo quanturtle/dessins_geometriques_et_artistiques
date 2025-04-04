@@ -10,7 +10,8 @@ def draw_composition_1(K1: int = 5,
                        K: int = 25,
                        H: int = 12,
                        R: float = 480*0.22,
-                       AD: float = math.pi/2):
+                       AD: float = math.pi/2,
+                       NP: int = 480):
     for I1 in range(K1):
         CX = DX + R1 * math.cos(2 * math.pi * I1 / K1 + A1)
         CY = DY + R1 * math.sin(2 * math.pi * I1 / K1 + A1)

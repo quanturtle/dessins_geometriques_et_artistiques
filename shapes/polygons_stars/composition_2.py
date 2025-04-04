@@ -10,7 +10,8 @@ def draw_composition_2(K1: int = 8,
                        R: float = 480*0.14,
                        RR: float = 0.9,
                        DX: float = 240,
-                       DY: float = 240):
+                       DY: float = 240,
+                       NP: int = 480):
     for I1 in range(N):
         R2 = R1 * (RR ** I1)
         R3 = R * (RR ** I1)

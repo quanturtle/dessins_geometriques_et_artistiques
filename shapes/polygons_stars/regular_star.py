@@ -7,7 +7,8 @@ def draw_regular_star(CX: float = 240,
                       K: int = 8, 
                       H: int = 3, 
                       R: float = 130, 
-                      AD: float = math.pi/2):
+                      AD: float = math.pi/2,
+                      NP: int = 480):
     pts = []
     
     for I in range(K):

@@ -3,6 +3,9 @@
 
 Recode of book "Dessins géométriques et artistiques avec votre micro-ordinateur" (1985) with python.
 
+[Dessins géométriques et artistiques avec votre micro-ordinateur](https://nextcloud.univ-lille.fr/index.php/s/R4PgSRWGyHEbDgG)
+[Nouveaux dessins géométriques et artistiques avec votre micro-ordinateur](https://nextcloud.univ-lille.fr/index.php/s/cwXAAokbbeaykW6)
+
 ## About
 In 1985, mathematician Jean-Paul Delahaye used a [Canon X-07](https://en.wikipedia.org/wiki/Canon_X-07) microcomputer with a [X-710 color plotter](https://www.youtube.com/watch?v=JWhNcsYoXQ0) to create incredibly simple yet elegant designs, showcased in his book _Dessins géométriques et artistiques avec votre micro-ordinateur_. Inspired by his work and that of another developer, I decided to port the original BASIC code into Python and use the turtle module to reproduce these captivating designs—just as Delahaye did four decades ago.
 
@@ -79,15 +82,15 @@ uv run python dessins.py dragon
 ## Usage
 Basic usage:
 ```sh
-python dessins.py <command>
+python dessins.py <command> <shape_name|design_number>
 ```
-where `command` is a shape (like `regular_polygon` or `dragon`).
-This will run the standard program from the book.  
+where `command` is `shape|design`. After that, the user provides a `shape_name` (if `shape` was selected). If `design` was provided by the user, the `design_number` needs to be selected.
+This will run the standard program from the book.
 The plotting window `NP` is generally set at `480`.
 
 Generate a shape:
 ```sh
-python dessins.py <command> <kwargs> --animate instant --output my_design
+python dessins.py shape <kwargs> --animate instant --output my_design
 ```
 ```sh
 --animate: str                      -default: instant, choices=[fast, fastest, instant]
@@ -97,23 +100,23 @@ Each shape has `kwargs` that need to be passed or it will default to the origina
 
 Examples:
 ```sh
-python dessins.py regular_polygon       # draw standard shape
-python dessins.py regular_polygon -K 8  # specify parameter for shape
+python dessins.py shape regular_polygon       # draw standard shape
+python dessins.py shape regular_polygon -K 8  # specify parameter for shape
 ```
 ```sh
-python dessins.py dragon
-python dessins.py dragon -N 8
-python dessins.py dragon -N 12
+python dessins.py shape dragon
+python dessins.py shape dragon -N 8
+python dessins.py shape dragon -N 12
 ```
 
 Generate a design:
 ```sh
-python dessins.py design_5
+python dessins.py design 5
 ```
 
 Generate a CAD design:
 ```sh
-python dessins.py regular_polygon -K 5 --output my_design
+python dessins.py shape regular_polygon -K 5 --output my_design
 ```
 
 Shapes:
