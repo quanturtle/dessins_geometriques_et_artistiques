@@ -224,7 +224,7 @@ def design_190():
 		return NP * 5 / 12 * math.cos(4 * DI) * math.exp(-DI)
 	
 	draw_surface(N=80,
-			  	 PA=480/240,
+				 PA=480/240,
 				 E1=1,
 				 E2=0,
 				 XA=480/2,
@@ -238,12 +238,62 @@ def design_190():
 				 compute_z=compute_z_190)
 	
 
-def design_191():	
-	draw_surface()
+def design_191():
+	def compute_z_191(x, y, NP: int) -> float:
+		X7 = 2 * abs(x - 0.5)
+		Y7 = 2 * abs(y - 0.5)
+		M7 = max(X7, Y7)
+		M8 = int(5 * M7)
+		M9 = 5 * M7 - M8
+		Z = 0
+		
+		if M9 > 0.8:
+			Z = (M9 - 0.8) * 5
+		
+		return -NP * 5/48 * (Z + M8)
+	
+	draw_surface(N=40,
+			  	 PA=480/240,
+				 E1=2,
+				 E2=0,
+				 XA=480/2,
+				 YA=0,
+				 XB=480,
+				 YB=480/3,
+				 XC=480/2,
+				 YC=2*480/3,
+				 XD=0,
+				 YD=480/3,
+				 compute_z=compute_z_191)
 	
 
 def design_192():
-	draw_surface()
+	def compute_z_192(x, y, NP: int) -> float:
+		X7 = 2 * abs(x - 0.5)
+		Y7 = 2 * abs(y - 0.5)
+		M7 = X7 + Y7
+		M8 = int(4 * M7)
+		M9 = 4 * M7 - M8
+		Z = 0
+		
+		if M9 > 0.8:
+			Z = (M9 - 0.8) * 5
+		
+		return -NP * 5/48 * (Z + M8)
+	
+	draw_surface(N=40,
+			  	 PA=480/240,
+				 E1=2,
+				 E2=0,
+				 XA=480/3,
+				 YA=0,
+				 XB=480,
+				 YB=480/4,
+				 XC=2*480/3,
+				 YC=3*480/4,
+				 XD=0,
+				 YD=480/2,
+				 compute_z=compute_z_192)
 	
 
 def design_193():
