@@ -30,7 +30,7 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-NP, -NP, NP, NP)
     
-    # TODO: fix presentation, design_38, design_41, design_42, design_43
+    # TODO2: fix presentation, design_38, design_41, design_42, design_43
     elif command in ['design_38']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-0.5*NP, -0.5*NP, 1.5*NP, 1.5*NP)
@@ -39,7 +39,7 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(0, 0, 1.1*NP, 1.1*NP)
     
-    # TODO: could be better
+    # TODO2: could be better
     elif command in ['design_46', 'design_47']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-1.3*NP, -1.3*NP, 1.3*NP, 1.3*NP)
@@ -48,7 +48,7 @@ def setup_canvas(command: str, NP: int, animation: str = "instant"):
         turtle.setup(width=550, height=800)
         turtle.setworldcoordinates(0, 0, 550, 800)
         
-    # TODO: could be better
+    # TODO2: could be better
     elif command in ['design_53', 'design_55', 'design_57', 'design_58', 'design_59', 'design_60', 'design_61']:
         turtle.setup(width=NP, height=NP)
         turtle.setworldcoordinates(-NP, -NP, NP, NP)
@@ -367,6 +367,35 @@ def main():
             "help": "Draw a design.",
             "args": {}
         },
+        "design_177": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_178": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_179": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_180": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+        "design_181": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_182": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_183": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  
     }
 
     for cmd_name, cmd_config in command_parsers.items():
@@ -385,7 +414,7 @@ def main():
                                type=str,
                                default=None,
                                required=False,
-                               help="Output file (default: None)")
+                               help="Output file name (default: No file output)")
         
     args = parser.parse_args()
 
@@ -434,6 +463,15 @@ def main():
         "design_61": design_61,
         "design_62": design_62,
         "design_63": design_63,
+        "design_64": design_64,
+        "design_177": design_177,
+        "design_178": design_178,
+        "design_179": design_179,
+        "design_180": design_180,
+        "design_181": design_181,
+        "design_182": design_182,
+		"design_183": design_183,
+  
     }
 
     pts = draw_shape(shape_functions[args.command])

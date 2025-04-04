@@ -95,7 +95,7 @@ python dessins.py <command> <kwargs> --animate instant --output my_design
 ```
 Each shape has `kwargs` that need to be passed or it will default to the original program's arguments.
 
-Examples
+Examples:
 ```sh
 python dessins.py regular_polygon       # draw standard shape
 python dessins.py regular_polygon -K 8  # specify parameter for shape
