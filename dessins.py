@@ -367,26 +367,6 @@ def main():
             "help": "Draw a design.",
             "args": {}
         },
-        "design_105": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_106": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_107": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_108": {
-            "help": "Draw a design.",
-            "args": {}
-        },
-        "design_109": {
-            "help": "Draw a design.",
-            "args": {}
-        },
     }
 
     for cmd_name, cmd_config in command_parsers.items():
@@ -455,11 +435,6 @@ def main():
         "design_62": design_62,
         "design_63": design_63,
         "design_64": design_64,
-        "design_105": design_105,
-        "design_106": design_106,
-        "design_107": design_107,
-        "design_108": design_108,
-        "design_109": design_109,
     }
 
     pts = draw_shape(shape_functions[args.command])
