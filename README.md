@@ -108,7 +108,7 @@ python dessins.py dragon -N 12
 
 Generate a design:
 ```sh
-python dessins.py design -N 5
+python dessins.py design_5
 ```
 
 Generate a CAD design:

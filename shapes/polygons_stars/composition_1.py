@@ -14,6 +14,6 @@ def draw_composition_1(K1: int = 5,
     for I1 in range(K1):
         CX = DX + R1 * math.cos(2 * math.pi * I1 / K1 + A1)
         CY = DY + R1 * math.sin(2 * math.pi * I1 / K1 + A1)
-        # TODO: scale CY by 1.5 to get last composition (design_19)
+        # TODO2: scale CY by 1.5 to get last composition (design_19)
 
         draw_regular_star(CX, CY, K, H, R, AD)

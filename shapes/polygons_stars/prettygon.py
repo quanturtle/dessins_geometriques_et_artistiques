@@ -22,7 +22,7 @@ def draw_prettygon(K: int = 200,
     for i in range(K + 1):
         X += RR * math.cos(AA)
         Y += RR * math.sin(AA)
-        # TODO: add alternative function for design_33
+        # TODO2: add alternative function for design_33
         
         pts.append((X, Y))
         turtle.goto(X, Y)
