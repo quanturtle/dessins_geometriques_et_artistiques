@@ -2,34 +2,20 @@ import math
 import turtle
 from typing import Callable, Tuple
 
-# TODO: refactor elastic grids to compute a deformation subroutine
-def default_deformation_subroutine(DI: float):
-    if DI < 1:
-        return DI ** 0.3
-    
-    return DI
-
 
 def sgn(x):
     return 1 if x > 0 else -1 if x < 0 else 0
 
 
-def default_AN_func(X: float, Y: float, DI: float) -> float:
-    if abs(X) > 1e-12:
-        AN = math.atan(Y / X)
-
-    else:
-        AN = (math.pi / 2) * sgn(Y)
-
-    if X < 0:
-        AN += math.pi
+def default_deformation_subroutine(DI: float, AN: float) -> float:
+    if DI < 1:
+        return DI ** 0.3
     
-    return AN
+    return DI, AN
 
 
 # X_strecht, Y_strecht
 def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_subroutine,
-                      AN_func: Callable = default_AN_func,
                       L_range: int = 2,
                       I_range: int = 21,
                       J_range: int = 21,
@@ -45,8 +31,16 @@ def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_sub
 
                 DI = math.sqrt(X * X + Y * Y)
 
-                AN = AN_func(X, Y, DI)
-                DI = deformation_subroutine(DI)
+                if abs(X) > 1e-12:
+                    AN = math.atan(Y / X)
+                    
+                else:
+                    AN = (math.pi / 2) * sgn(Y)
+                
+                if X < 0:
+                    AN += math.pi
+                
+                DI, AN = deformation_subroutine(DI, AN)
                 
                 X = DI * math.cos(AN)
                 Y = DI * math.sin(AN)
