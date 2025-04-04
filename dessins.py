@@ -395,7 +395,74 @@ def main():
             "help": "Draw a design.",
             "args": {}
         },
-  
+		"design_184": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_185": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_186": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_187": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_188": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_189": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_190": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+		"design_191": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_192": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_193": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_194": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_195": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_196": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_197": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_198": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_199": {
+            "help": "Draw a design.",
+            "args": {}
+        },
+  		"design_200": {
+            "help": "Draw a design.",
+            "args": {}
+        },
     }
 
     for cmd_name, cmd_config in command_parsers.items():
@@ -471,7 +538,23 @@ def main():
         "design_181": design_181,
         "design_182": design_182,
 		"design_183": design_183,
-  
+  		"design_184": design_184,
+  		"design_185": design_185,
+		"design_186": design_186,
+		"design_187": design_187,
+		"design_188": design_188,
+		"design_189": design_189,
+		"design_190": design_190,
+		"design_191": design_191,
+		"design_192": design_192,
+		"design_193": design_193,
+		"design_194": design_194,
+		"design_195": design_195,
+		"design_196": design_196,
+		"design_197": design_197,
+		"design_198": design_198,
+		"design_199": design_199,
+		"design_200": design_200,
     }
 
     pts = draw_shape(shape_functions[args.command])
