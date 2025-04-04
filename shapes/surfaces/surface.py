@@ -87,30 +87,30 @@ def draw_surface(
                 XF_t = XF + translate_x
                 YF_t = YF + translate_y
                 
-                if J == I1:
-                    turtle.penup()
-                    turtle.goto(XF_t, YF_t)
-                
-                if E2 == 1:
-                    turtle.pendown()
-                    turtle.goto(XF_t, YF_t)
-                    
-                    skip = True
-                
-                if not skip:
-                    if YF > MI[J] and YF < MA[J]:
+                if 0 <= J <= M:
+                    if J == I1:
                         turtle.penup()
                         turtle.goto(XF_t, YF_t)
                     
-                    else:
-                        if YF > MA[J]:
-                            MA[J] = YF
-                        
-                        if YF < MI[J]:
-                            MI[J] = YF
-                        
+                    elif E2 == 1:
                         turtle.pendown()
                         turtle.goto(XF_t, YF_t)
+                        
+                        skip = True
+                        
+                    elif not skip:
+                        if YF > MI[J] and YF < MA[J]:
+                            turtle.penup()
+                            turtle.goto(XF_t, YF_t)
+                        else:
+                            if YF > MA[J]:
+                                MA[J] = YF
+                            
+                            if YF < MI[J]:
+                                MI[J] = YF
+                            
+                            turtle.pendown()
+                            turtle.goto(XF_t, YF_t)
                 
                 J += G
             
