@@ -25,7 +25,6 @@ def draw_surface(
     compute_z: Callable = default_compute_z,
     translate_x: float = 0.0,
     translate_y: float = 0.0,
-    debug: bool = False
 ):
     if PA is None: PA = NP / 16
     if XA is None: XA = NP / 2
