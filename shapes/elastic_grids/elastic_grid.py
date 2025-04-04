@@ -14,8 +14,12 @@ def default_deformation_subroutine(DI: float, AN: float) -> float:
     return DI, AN
 
 
-# X_strecht, Y_strecht
+def default_xy_transform(I: float, J: float) -> Tuple[float, float]:
+    return I / 10 - 1, J / 10 - 1
+
+
 def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_subroutine,
+                      xy_transform: Callable = default_xy_transform,
                       L_range: int = 2,
                       I_range: int = 21,
                       J_range: int = 21,
@@ -23,8 +27,7 @@ def draw_elastic_grid(deformation_subroutine: Callable = default_deformation_sub
     for L in range(L_range):
         for I in range(I_range):
             for J in range(J_range):
-                X = I / 10 - 1
-                Y = J / 10 - 1
+                X, Y = xy_transform(I, J)
 
                 if L == 1:
                     X, Y = Y, X
