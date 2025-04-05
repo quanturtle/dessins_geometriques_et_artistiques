@@ -88,4 +88,5 @@ def draw_d3data(DC: int = 2,
 
         MY = read_data()
         MZ = read_data()
+        
         perspective_transform(MX, MY, MZ)

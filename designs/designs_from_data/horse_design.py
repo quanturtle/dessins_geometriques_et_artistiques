@@ -119,20 +119,16 @@ def design_36(NP: int = 480):
 					turtle.goto(X - NP // 2, Y - NP // 2)
 
 
-# TODO: bug here
 def design_37(NP: int = 480):
 	i = 0
 	B1 = 0
 	
 	for I in range(16):
-		AN = 2 *I * math.pi/6 + math.pi/12
-		CO = math.cos(AN)
-		SI = math.sin(AN)
-		
-		R = 0.87 ** I
-		
+		i = 0
+		B1 = 0
+
 		while True:
-			A = DATA[i % len(DATA)]
+			A = DATA[i]
 			i += 1
 
 			if A == 2000:
@@ -140,31 +136,31 @@ def design_37(NP: int = 480):
 
 			if A == 1000:
 				B1 = 0
-			
-				A = DATA[i % len(DATA)]
-				i += 1
-			
-				B = DATA[i % len(DATA)]
-				i += 1
-			
-			else:
-				B = DATA[i % len(DATA)]
+				A = DATA[i]
 				i += 1
 
-			X_coord = 0.5 + R * ((CO * 0.15 + A / 110.0) - (SI * 0.15 + B / 110.0))
-			Y_coord = 0.5 + R * ((SI * 0.15 + A / 110.0) + (CO * 0.15 + B / 110.0))
-			
-			X = int(NP * X_coord)
-			Y = int(NP * Y_coord)
-			
+			B = DATA[i]
+			i += 1
+
+			AN = 2.0 * I * math.pi / 6.0 + math.pi / 12.0
+			CO = math.cos(AN)
+			SI = math.sin(AN)
+			R = (0.87) ** I
+
+			X_ = 0.15 + A / 110.0
+			Y_ = 0.15 + B / 110.0
+
+			X = int(NP * (0.5 + R * (CO * X_ - SI * Y_)))
+			Y = int(NP * (0.5 + R * (SI * X_ + CO * Y_)))
+
 			if B1 == 0:
 				turtle.penup()
-				turtle.goto(X - NP // 2, Y - NP // 2)
+				turtle.goto(X, Y)
 				B1 = 1
-			
+
 			else:
 				turtle.pendown()
-				turtle.goto(X - NP // 2, Y - NP // 2)
+				turtle.goto(X, Y)
 	
 	
 def design_38(NP: int = 480):
@@ -371,10 +367,8 @@ def design_42(NP: int = 480):
 	
 	
 def design_43(NP: int = 480):
-	i = 0
-	B1 = 0
-
 	N = 4
+
 	for I in range(-N, N + 1):
 		for J in range(-N, N + 1):
 			i = 0
