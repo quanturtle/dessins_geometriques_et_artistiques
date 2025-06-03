@@ -1,10 +1,10 @@
 import math
 import turtle
-from typing import List, Tuple, Callable
+from typing import Callable
 
 def default_deformation_subroutine(X0: int, 
                                    Y0: int,
-                                   NP: int = 480) -> Tuple[int, int]:
+                                   NP: int = 480) -> tuple[int, int]:
     XH = X0/NP*2 - 1
     YH = Y0/NP*2 - 1
     DH = math.sqrt(XH*XH + YH*YH)
@@ -26,12 +26,12 @@ def default_deformation_subroutine(X0: int,
 def draw_simple_fractal_deformed(M: int = 3,
                                  N: int = 4,
                                  K: int = 4,
-                                 X: List[int] = None,
-                                 Y: List[int] = None,
-                                 L: List[float] = None,
-                                 A: List[float] = None,
+                                 X: list[int] = None,
+                                 Y: list[int] = None,
+                                 L: list[float] = None,
+                                 A: list[float] = None,
                                  deformation_func: Callable = default_deformation_subroutine,
-                                 NP: int = 480) -> List[Tuple[int, int]]:
+                                 NP: int = 480) -> list[tuple[int, int]]:
     pts = []
 
     if X is None:    

@@ -1,6 +1,6 @@
 import math
 import turtle
-from typing import Callable, Tuple
+from typing import Callable
 
 
 def default_compute_X(NP: int, K1: float, i: int , N: int) -> int:

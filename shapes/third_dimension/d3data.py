@@ -1,13 +1,12 @@
 import math
 import turtle
-from typing import List
 
 
 def draw_d3data(DC: int = 2, 
                 TC: int = 2,
-                O: List[float] = [5, -2, 1.3], 
-                A: List[float] = [3*math.pi/4, 0, 0], 
-                Q: List[float] = [0, 1, 0],
+                O: list[float] = [5, -2, 1.3], 
+                A: list[float] = [3*math.pi/4, 0, 0], 
+                Q: list[float] = [0, 1, 0],
                 NP: int = 480):
     OX, OY, OZ = O
     AZ, AY, AX = A

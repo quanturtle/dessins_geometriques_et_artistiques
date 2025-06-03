@@ -1,13 +1,15 @@
 import math
 import turtle
-from typing import Callable, List
+from typing import Callable
 
-def default_A_func(N: int) -> List[int]:
+
+def default_A_func(N: int) -> list[int]:
     return [0] * (N + 1)
 
+
 def draw_dragon(N: int = 10,
-                A_initializer: Callable[[int], List[int]] = default_A_func,
-                initial_values: List[float] = [480/3, 480/2, -math.pi/4 * (10-2), 480/math.sqrt(2)**10],
+                A_initializer: Callable[[int], list[int]] = default_A_func,
+                initial_values: list[float] = [480/3, 480/2, -math.pi/4 * (10-2), 480/math.sqrt(2)**10],
                 NP: int = 480):
     pts = []
     A = A_initializer(N)

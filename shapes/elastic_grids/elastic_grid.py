@@ -1,20 +1,20 @@
 import math
 import turtle
-from typing import Callable, Tuple
+from typing import Callable
 
 
 def sgn(x):
     return 1 if x > 0 else -1 if x < 0 else 0
 
 
-def default_deformation_subroutine(DI: float, AN: float) -> float:
+def default_deformation_subroutine(DI: float, AN: float) -> tuple[float, float]:
     if DI < 1:
-        return DI ** 0.3
+        return DI ** 0.3, AN
     
     return DI, AN
 
 
-def default_xy_transform(I: float, J: float) -> Tuple[float, float]:
+def default_xy_transform(I: float, J: float) -> tuple[float, float]:
     return I / 10 - 1, J / 10 - 1
 
 

@@ -1,15 +1,14 @@
 import math
 import turtle
-from typing import List
 
 
 def draw_simple_fractal(M: int = 3,
                         N: int = 4,
                         K: int = 4,
-                        X: List = [0, 480, 480*0.5, 0],
-                        Y: List = [math.sqrt(3)/2 * 480, math.sqrt(3)/2 * 480, 0, math.sqrt(3)/2 * 480],
-                        L: List = [1/3, 1/3, 1/3, 1/3],
-                        A: List = [0, math.pi/3, -math.pi/3, 0],
+                        X: list = [0, 480, 480*0.5, 0],
+                        Y: list = [math.sqrt(3)/2 * 480, math.sqrt(3)/2 * 480, 0, math.sqrt(3)/2 * 480],
+                        L: list = [1/3, 1/3, 1/3, 1/3],
+                        A: list = [0, math.pi/3, -math.pi/3, 0],
                         translateX: float = 0.0,
                         translateY: float = 0.0):
     for II in range(M):
