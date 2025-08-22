@@ -5,9 +5,21 @@ from shapes import draw_linear_sticks
 def design_110():
     draw_linear_sticks()
 
-    
+
 def design_111():
-    draw_linear_sticks(N=600, M=1, K=5, R1=480/4, R2=480*5/24)
+    def compute_R1_111(i: int, NP: int) -> float:
+        return NP / 4
+
+    def compute_R2_111(i: int, NP: int) -> float:
+        return NP * 5 / 24
+
+    draw_linear_sticks(
+        N=600,
+        M=1,
+        K=5,
+        compute_R1=compute_R1_111,
+        compute_R2=compute_R2_111,
+    )
 
     
 def design_112():
