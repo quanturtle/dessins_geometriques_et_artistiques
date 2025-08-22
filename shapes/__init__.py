@@ -1,3 +1,5 @@
+from cad import capture_points
+
 from .curves import (
     draw_orbiting_curves,
     draw_rotating_curves,
@@ -59,8 +61,13 @@ from .surfaces.surface import (
 from .third_dimension import (
     draw_d3cube,
     draw_d3data,
-    draw_d3structures    
+    draw_d3structures
 )
+
+
+for _name, _func in list(globals().items()):
+    if _name.startswith("draw_"):
+        globals()[_name] = capture_points(_func)
 
 
 __all__ = [
@@ -88,5 +95,5 @@ __all__ = [
     "draw_surface",
     "draw_d3cube",
     "draw_d3data",
-    "draw_d3structures"    
+    "draw_d3structures",
 ]
