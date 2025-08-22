@@ -1,5 +1,4 @@
 import math
-from typing import Tuple
 from shapes import draw_simple_fractal_deformed
 
 
@@ -8,7 +7,7 @@ def design_152():
 
 
 def design_153():
-    def deformation_subroutine_153(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_153(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -33,7 +32,7 @@ def design_153():
 
 
 def design_154():
-    def deformation_subroutine_154(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_154(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -58,7 +57,7 @@ def design_154():
 
 
 def design_155():
-    def deformation_subroutine_155(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_155(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -84,7 +83,7 @@ def design_155():
 
 
 def design_156():
-    def deformation_subroutine_156(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_156(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -110,7 +109,7 @@ def design_156():
 
 
 def design_157():
-    def deformation_subroutine_157(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_157(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -136,7 +135,7 @@ def design_157():
 
 
 def design_158():
-    def deformation_subroutine_158(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_158(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -162,7 +161,7 @@ def design_158():
 
 
 def design_159():
-    def deformation_subroutine_159(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_159(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -188,7 +187,7 @@ def design_159():
 
 
 def design_160():
-    def deformation_subroutine_160(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_160(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -217,7 +216,7 @@ def design_160():
 
 
 def design_161():
-    def deformation_subroutine_161(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_161(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -246,7 +245,7 @@ def design_161():
 
 
 def design_162():
-    def deformation_subroutine_162(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_162(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
@@ -275,7 +274,7 @@ def design_162():
 
 
 def design_163():
-    def deformation_subroutine_163(X0: int, Y0: int, NP: int = 480) -> Tuple[int, int]:
+    def deformation_subroutine_163(X0: int, Y0: int, NP: int = 480) -> tuple[int, int]:
         XH = X0/NP*2 - 1
         YH = Y0/NP*2 - 1
         DH = math.sqrt(XH*XH + YH*YH)
