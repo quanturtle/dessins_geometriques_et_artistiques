@@ -1,8 +1,7 @@
-from typing import List
 from build123d import *
 
 
-def generate_cad(pts: List, name: str):
+def generate_cad(pts: list, name: str):
     with BuildPart() as part:
         with BuildSketch(Plane.XZ) as s:
             with BuildLine() as l:
