@@ -2,15 +2,17 @@ import math
 import turtle
 
 
-def draw_simple_fractal(M: int = 3,
-                        N: int = 4,
-                        K: int = 4,
-                        X: list = [0, 480, 480*0.5, 0],
-                        Y: list = [math.sqrt(3)/2 * 480, math.sqrt(3)/2 * 480, 0, math.sqrt(3)/2 * 480],
-                        L: list = [1/3, 1/3, 1/3, 1/3],
-                        A: list = [0, math.pi/3, -math.pi/3, 0],
-                        translateX: float = 0.0,
-                        translateY: float = 0.0):
+def draw_simple_fractal(
+    M: int = 3,
+    N: int = 4,
+    K: int = 4,
+    X: list[float] = [0, 480, 480 * 0.5, 0],
+    Y: list[float] = [math.sqrt(3) / 2 * 480, math.sqrt(3) / 2 * 480, 0, math.sqrt(3) / 2 * 480],
+    L: list[float] = [1 / 3, 1 / 3, 1 / 3, 1 / 3],
+    A: list[float] = [0, math.pi / 3, -math.pi / 3, 0],
+    translateX: float = 0.0,
+    translateY: float = 0.0,
+) -> None:
     for II in range(M):
         XD = X[II]
         YD = Y[II]
@@ -24,7 +26,7 @@ def draw_simple_fractal(M: int = 3,
         turtle.pendown()
 
         A0 = math.atan2(YA - YD, XA - XD)
-        L0 = math.sqrt((XA - XD)**2 + (YA - YD)**2)
+        L0 = math.sqrt((XA - XD) ** 2 + (YA - YD) ** 2)
 
         for I in range(N**K):
             LL = L0
@@ -39,7 +41,7 @@ def draw_simple_fractal(M: int = 3,
 
             else:
                 for J in range(K - 1, -1, -1):
-                    R_val = N**J
+                    R_val = N ** J
                     T2 = T1 // R_val
                     AA += A[T2]
                     LL *= L[T2]
@@ -48,3 +50,4 @@ def draw_simple_fractal(M: int = 3,
                 X0 += LL * math.cos(AA)
                 Y0 += LL * math.sin(AA)
                 turtle.goto(int(X0 + translateX), int(Y0 + translateY))
+
