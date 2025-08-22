@@ -1,3 +1,5 @@
+from cad import capture_points
+
 from .polygons_stars import (
     design_1,
     design_2,
@@ -279,6 +281,10 @@ from .third_dimension import (
     design_251,
     design_252,
 )
+
+for _name, _func in list(globals().items()):
+    if _name.startswith("design_"):
+        globals()[_name] = capture_points(_func)
 
 __all__ = [
     "design_1",

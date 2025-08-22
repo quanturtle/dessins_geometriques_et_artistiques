@@ -1,6 +1,5 @@
 import math
 import turtle
-from typing import List
 
 
 def draw_rounded_corner(X0: int, 
@@ -36,10 +35,10 @@ def draw_simple_fractal_rounded(M: int = 1,
                                 N: int = 7, 
                                 K: int = 2, 
                                 S: int = 5,
-                                X: List = [0, 1],
-                                Y: List = [480, -480],
-                                L: List = [1/2, 1/4, 1/4, 1/4, 1/4, 1/2, 1/2],
-                                A: List = [0, math.pi / 2, -math.pi, 0, math.pi / 2, -math.pi / 2, 0]):
+                                X: list = [0, 1],
+                                Y: list = [480, -480],
+                                L: list = [1/2, 1/4, 1/4, 1/4, 1/4, 1/2, 1/2],
+                                A: list = [0, math.pi / 2, -math.pi, 0, math.pi / 2, -math.pi / 2, 0]):
     for II in range(M):
         XD = X[II]
         YD = Y[II]
