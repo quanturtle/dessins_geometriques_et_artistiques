@@ -16,7 +16,7 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
     """Configure the turtle canvas for a given command."""
     size = min(width, height)
     turtle.setup(width=width, height=height)
-    turtle.screensize(width=width, height=height)
+    turtle.screensize(canvwidth=width, canvheight=height)
 
     if command.startswith("design_"):
         design_num = int(command.split("_")[1])
@@ -197,6 +197,12 @@ def main() -> int:
     size = min(width, height)
 
     if args.command == "help":
+        print("Commands:")
+        print("  shape <shape_name> [options]   Draw a predefined shape")
+        print("  design <number> [options]      Draw a predefined design")
+        print("  test [options]                 Render every design sequentially")
+        print("  help                           Show this help message\n")
+
         print("Available shapes:")
         for name in sorted(get_available_shapes()):
             print(f" - {name}")
