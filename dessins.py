@@ -97,16 +97,283 @@ def get_shape_args() -> dict[str, dict[str, Any]]:
             "args": {
                 "-K": {"type": int, "default": 5, "required": False, "help": "Number of sides"},
                 "-R": {"type": float, "default": 240 * 0.45, "required": False, "help": "Radius, NP/2*R"},
-                "-AD": {"type": float, "default": math.pi / 4, "required": False, "help": "Starting angle in radians"},
+                "-AD": {
+                    "type": float,
+                    "default": math.pi / 4,
+                    "required": False,
+                    "help": "Starting angle in radians",
+                },
             },
         },
         "regular_star": {
             "help": "Draw a regular star.",
             "args": {
                 "-K": {"type": int, "default": 8, "required": False, "help": "Number of points"},
-                "-H": {"type": int, "default": 3, "required": False, "help": "Skip H points each time"},
+                "-H": {
+                    "type": int,
+                    "default": 3,
+                    "required": False,
+                    "help": "Skip H points each time",
+                },
                 "-R": {"type": float, "default": 130, "required": False, "help": "Radius"},
-                "-AD": {"type": float, "default": math.pi / 2, "required": False, "help": "Starting angle in radians"},
+                "-AD": {
+                    "type": float,
+                    "default": math.pi / 2,
+                    "required": False,
+                    "help": "Starting angle in radians",
+                },
+            },
+        },
+        "bird_fish": {
+            "help": "Draw the bird-fish curve.",
+            "args": {
+                "-NP": {
+                    "type": int,
+                    "default": 480,
+                    "required": False,
+                    "help": "Canvas scale",
+                }
+            },
+        },
+        "complete_bipartite_graph": {
+            "help": "Draw a complete bipartite graph.",
+            "args": {
+                "-N": {"type": int, "default": 10, "required": False, "help": "Points per set"},
+                "-XA": {"type": int, "default": 0, "required": False, "help": "XA"},
+                "-YA": {"type": int, "default": 0, "required": False, "help": "YA"},
+                "-XB": {"type": int, "default": 0, "required": False, "help": "XB"},
+                "-YB": {"type": int, "default": 480, "required": False, "help": "YB"},
+                "-XC": {"type": int, "default": 480, "required": False, "help": "XC"},
+                "-YC": {"type": int, "default": 0, "required": False, "help": "YC"},
+                "-XD": {"type": int, "default": 480, "required": False, "help": "XD"},
+                "-YD": {"type": int, "default": 480, "required": False, "help": "YD"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "composition_1": {
+            "help": "Draw composition 1.",
+            "args": {
+                "-K1": {"type": int, "default": 5, "required": False, "help": "Inner polygon sides"},
+                "-DX": {"type": float, "default": 240, "required": False, "help": "Center X"},
+                "-DY": {"type": float, "default": 240, "required": False, "help": "Center Y"},
+                "-R1": {
+                    "type": float,
+                    "default": 240 * 0.54,
+                    "required": False,
+                    "help": "Inner radius",
+                },
+                "-A1": {
+                    "type": float,
+                    "default": math.pi / 2,
+                    "required": False,
+                    "help": "Inner angle",
+                },
+                "-K": {"type": int, "default": 25, "required": False, "help": "Star points"},
+                "-H": {"type": int, "default": 12, "required": False, "help": "Skip points"},
+                "-R": {
+                    "type": float,
+                    "default": 240 * 0.44,
+                    "required": False,
+                    "help": "Outer radius",
+                },
+                "-AD": {
+                    "type": float,
+                    "default": math.pi / 2,
+                    "required": False,
+                    "help": "Starting angle",
+                },
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "composition_2": {
+            "help": "Draw composition 2.",
+            "args": {
+                "-K1": {"type": int, "default": 8, "required": False, "help": "Inner polygon sides"},
+                "-N": {"type": int, "default": 32, "required": False, "help": "Points"},
+                "-K": {"type": int, "default": 16, "required": False, "help": "Star points"},
+                "-H": {"type": int, "default": 5, "required": False, "help": "Skip points"},
+                "-R1": {"type": float, "default": 240 * 0.72, "required": False, "help": "Inner radius"},
+                "-R": {"type": float, "default": 240 * 0.28, "required": False, "help": "Outer radius"},
+                "-RR": {"type": float, "default": 0.9, "required": False, "help": "Radius ratio"},
+                "-DX": {"type": float, "default": 240, "required": False, "help": "Center X"},
+                "-DY": {"type": float, "default": 240, "required": False, "help": "Center Y"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "d3cube": {"help": "Draw a 3D cube.", "args": {}},
+        "d3data": {
+            "help": "Draw 3D data.",
+            "args": {
+                "-DC": {"type": int, "default": 2, "required": False, "help": "Data columns"},
+                "-TC": {"type": int, "default": 2, "required": False, "help": "Time columns"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "d3structures": {"help": "Draw 3D structures.", "args": {}},
+        "dragon": {
+            "help": "Draw a paper-folding dragon.",
+            "args": {
+                "-N": {"type": int, "default": 10, "required": False, "help": "Iterations"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "elastic_grid": {
+            "help": "Draw an elastic grid.",
+            "args": {
+                "-L_RANGE": {"type": int, "default": 2, "required": False, "help": "L range"},
+                "-I_RANGE": {"type": int, "default": 21, "required": False, "help": "I range"},
+                "-J_RANGE": {"type": int, "default": 21, "required": False, "help": "J range"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "fractal_star": {
+            "help": "Draw a fractal star.",
+            "args": {
+                "-N": {"type": int, "default": 5, "required": False, "help": "Branches"},
+                "-K": {"type": int, "default": 5, "required": False, "help": "Levels"},
+                "-RA": {"type": float, "default": 0.35, "required": False, "help": "Ratio"},
+                "-LL": {"type": int, "default": None, "required": False, "help": "Initial length"},
+                "-AA": {
+                    "type": float,
+                    "default": 4 * math.pi / 5,
+                    "required": False,
+                    "help": "Angle increment",
+                },
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "horse": {
+            "help": "Draw a horse from data.",
+            "args": {
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"}
+            },
+        },
+        "linear_modulo": {
+            "help": "Draw linear modulo patterns.",
+            "args": {
+                "-N": {"type": int, "default": 400, "required": False, "help": "Points"},
+                "-M": {"type": int, "default": 400, "required": False, "help": "Modulo"},
+                "-K1": {"type": float, "default": 4, "required": False, "help": "K1"},
+                "-K2": {"type": float, "default": 5, "required": False, "help": "K2"},
+                "-H": {"type": int, "default": 2, "required": False, "help": "H"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "linear_sticks": {
+            "help": "Draw linear sticks patterns.",
+            "args": {
+                "-N": {"type": int, "default": 100, "required": False, "help": "Number of sticks"},
+                "-M": {"type": int, "default": 1, "required": False, "help": "M"},
+                "-K": {"type": int, "default": 5, "required": False, "help": "K"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "lion": {
+            "help": "Draw a lion from data.",
+            "args": {
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"}
+            },
+        },
+        "orbiting_curves": {
+            "help": "Draw orbiting curves.",
+            "args": {
+                "-N": {"type": int, "default": 2000, "required": False, "help": "Iterations"},
+                "-T1": {"type": int, "default": 2, "required": False, "help": "T1"},
+                "-T2": {"type": int, "default": 100, "required": False, "help": "T2"},
+                "-K1": {"type": int, "default": 1, "required": False, "help": "K1"},
+                "-K2": {"type": int, "default": 1, "required": False, "help": "K2"},
+                "-R1": {"type": float, "default": 120.0, "required": False, "help": "Radius"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "prettygon": {
+            "help": "Draw a prettygon.",
+            "args": {
+                "-K": {"type": int, "default": 200, "required": False, "help": "Iterations"},
+                "-AN": {
+                    "type": float,
+                    "default": 1.5201254775434483,
+                    "required": False,
+                    "help": "Angle",
+                },
+                "-RA": {"type": float, "default": 0.98, "required": False, "help": "Radius ratio"},
+                "-AA": {"type": float, "default": 0.0, "required": False, "help": "Angle adjust"},
+                "-RR": {"type": float, "default": 384.0, "required": False, "help": "Radius"},
+                "-INITIAL_Y": {
+                    "type": float,
+                    "default": 0,
+                    "required": False,
+                    "help": "Initial Y position",
+                },
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "rotating_curves": {
+            "help": "Draw rotating curves.",
+            "args": {
+                "-N": {"type": int, "default": 2000, "required": False, "help": "Iterations"},
+                "-T1": {"type": int, "default": 1, "required": False, "help": "T1"},
+                "-T2": {"type": int, "default": 100, "required": False, "help": "T2"},
+                "-K1": {"type": int, "default": 1, "required": False, "help": "K1"},
+                "-K2": {"type": int, "default": 1, "required": False, "help": "K2"},
+                "-H1": {"type": int, "default": 1, "required": False, "help": "H1"},
+                "-H2": {"type": int, "default": 1, "required": False, "help": "H2"},
+                "-R1": {"type": float, "default": 80.0, "required": False, "help": "Radius 1"},
+                "-R2": {"type": float, "default": 120.0, "required": False, "help": "Radius 2"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "simple_fractal": {
+            "help": "Draw a simple fractal.",
+            "args": {
+                "-M": {"type": int, "default": 3, "required": False, "help": "M"},
+                "-N": {"type": int, "default": 4, "required": False, "help": "N"},
+                "-K": {"type": int, "default": 4, "required": False, "help": "K"},
+            },
+        },
+        "simple_fractal_deformed": {
+            "help": "Draw a deformed simple fractal.",
+            "args": {
+                "-M": {"type": int, "default": 3, "required": False, "help": "M"},
+                "-N": {"type": int, "default": 4, "required": False, "help": "N"},
+                "-K": {"type": int, "default": 4, "required": False, "help": "K"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "simple_fractal_rounded": {
+            "help": "Draw a rounded simple fractal.",
+            "args": {
+                "-M": {"type": int, "default": 1, "required": False, "help": "M"},
+                "-N": {"type": int, "default": 7, "required": False, "help": "N"},
+                "-K": {"type": int, "default": 2, "required": False, "help": "K"},
+                "-S": {"type": int, "default": 5, "required": False, "help": "S"},
+            },
+        },
+        "smurf": {
+            "help": "Draw a smurf from data.",
+            "args": {
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"}
+            },
+        },
+        "spiraling_curves": {
+            "help": "Draw spiraling curves.",
+            "args": {
+                "-N": {"type": int, "default": 2000, "required": False, "help": "Iterations"},
+                "-T": {"type": float, "default": 40, "required": False, "help": "T"},
+                "-R": {"type": float, "default": 0.8, "required": False, "help": "Radius"},
+                "-L": {"type": float, "default": 0.1, "required": False, "help": "L"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
+            },
+        },
+        "surface": {
+            "help": "Draw a surface.",
+            "args": {
+                "-N": {"type": int, "default": 6, "required": False, "help": "Grid size"},
+                "-PA": {"type": float, "default": None, "required": False, "help": "Perspective angle"},
+                "-E1": {"type": int, "default": 2, "required": False, "help": "Exponent 1"},
+                "-E2": {"type": int, "default": 1, "required": False, "help": "Exponent 2"},
+                "-E3": {"type": int, "default": 0, "required": False, "help": "Exponent 3"},
+                "-NP": {"type": int, "default": 480, "required": False, "help": "Canvas scale"},
             },
         },
     }
@@ -257,7 +524,7 @@ def main() -> int:
         print("Commands:")
         print("  shape <shape_name> [options]   Draw a predefined shape")
         print("  design <number> [options]      Draw a predefined design")
-        print("  test [options]                 Render every design sequentially")
+        print("  test [options]                 Render designs in 4x4 batches")
         print("  help                           Show this help message\n")
 
         print("Available shapes:")
@@ -333,39 +600,49 @@ def main() -> int:
 
 
 def test_everything(width: int = 480, height: int = 480, animation: str = "instant") -> None:
-    """Draw every available design sequentially in 4x4 batches.
+    """Draw every available design in 4x4 grid batches.
 
-    Each batch renders 16 designs on the same canvas one after another,
-    resetting the canvas after every group to keep resources in check.
-    A 0.5-second pause is added between designs so each is visible.
+    Sixteen designs are shown at a time. Each design is scaled to fit a
+    cell in the grid and placed so the batch fills the window. A short
+    pause follows each drawing and between batches for visibility.
     """
+
     design_numbers = sorted(int(n) for n in get_available_designs())
-    size = min(width, height)
+    cell_w = width / 4
+    cell_h = height / 4
+    size = min(cell_w, cell_h) * 0.9
 
-    for index, num in enumerate(design_numbers, start=1):
-        command = f"design_{num}"
-        designs_module = importlib.import_module("designs")
-        draw_function = getattr(designs_module, command)
+    for batch_start in range(0, len(design_numbers), 16):
+        setup_canvas("test", width, height, animation)
+        for idx in range(16):
+            if batch_start + idx >= len(design_numbers):
+                break
 
-        setup_canvas(command, width, height, animation)
+            num = design_numbers[batch_start + idx]
+            command = f"design_{num}"
+            designs_module = importlib.import_module("designs")
+            draw_function = getattr(designs_module, command)
 
-        draw_args: dict[str, Any] = {}
-        if "NP" in inspect.signature(draw_function).parameters:
-            draw_args["NP"] = size
+            row, col = divmod(idx, 4)
+            x = -width / 2 + (col + 0.5) * cell_w
+            y = height / 2 - (row + 0.5) * cell_h
 
-        pts = draw_shape(draw_function, **draw_args)
-        fit_canvas_to_points(pts)
-        turtle.update()
+            turtle.penup()
+            turtle.goto(x, y)
+            turtle.setheading(0)
+            turtle.pendown()
+
+            draw_args: dict[str, Any] = {}
+            if "NP" in inspect.signature(draw_function).parameters:
+                draw_args["NP"] = size
+
+            draw_shape(draw_function, **draw_args)
+            turtle.hideturtle()
+            turtle.update()
+            time.sleep(0.5)
 
         time.sleep(0.5)
-
-        # Reset after each design to avoid overlap
-        turtle.reset()
-        turtle.hideturtle()
-
-        # Every 16 designs, clear the screen completely
-        if index % 16 == 0:
-            turtle.clearscreen()
+        turtle.clearscreen()
 
     turtle.bye()
 

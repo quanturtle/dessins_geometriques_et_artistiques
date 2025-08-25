@@ -89,7 +89,7 @@ where `command` is `shape`, `design`, `help`, or `test`.
 * `shape` – draw a specific shape. Provide a `shape_name`.
 * `design` – draw a design from the book. Provide a `design_number`.
 * `help` – list available commands, shapes, and designs.
-* `test` – render every design sequentially with a 0.5-second pause between each.
+* `test` – render designs in 4×4 batches with a 0.5-second pause between drawings.
 
 The plotting window `NP` is generally set at `480`.
 
@@ -108,7 +108,7 @@ See parameters for a specific shape:
 python dessins.py <shape_name> help
 ```
 
-Run every design sequentially:
+Run every design in 4×4 batches:
 ```sh
 python dessins.py test
 ```
