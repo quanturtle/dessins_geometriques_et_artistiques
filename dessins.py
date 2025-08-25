@@ -14,40 +14,8 @@ T = TypeVar("T")
 
 def setup_canvas(command: str, width: int, height: int, animation: str = "instant") -> None:
     """Configure the turtle canvas for a given command."""
-    size = min(width, height)
     turtle.setup(width=width, height=height)
     turtle.screensize(canvwidth=width, canvheight=height)
-
-    if command.startswith("design_"):
-        design_num = int(command.split("_")[1])
-
-        if design_num in [35, 36, 37, 39, 40, 41, 136]:
-            turtle.setworldcoordinates(-size, -size, size, size)
-        elif design_num in [46, 47]:
-            turtle.setworldcoordinates(-1.3 * size, -1.3 * size, 1.3 * size, 1.3 * size)
-        elif design_num in [54, 56]:
-            turtle.setworldcoordinates(-3 * size, -3 * size, 3 * size, 3 * size)
-        elif design_num == 38:
-            turtle.setworldcoordinates(-0.5 * size, -0.5 * size, 1.5 * size, 1.5 * size)
-        elif design_num in [50, 51, 52, 80, 82, 83, 84, 92, 93, 94, 96, 99, 100]:
-            turtle.setworldcoordinates(0, 0, size, size)
-        elif design_num in [45, 115, 116, 117]:
-            turtle.setworldcoordinates(0, 0, 1.1 * size, 1.2 * size)
-        elif design_num in [53, 55, 57, 58, 59, 60, 61]:
-            turtle.setworldcoordinates(-size, -size, size, size)
-        else:
-            turtle.setworldcoordinates(0, 0, size, size)
-    else:
-        if command == "dragon":
-            turtle.setworldcoordinates(0, 0, size, size)
-        elif command == "linear_modulo":
-            turtle.setworldcoordinates(0, 0, 1.5 * size, 1.5 * size)
-        elif command == "simple_fractal":
-            turtle.setworldcoordinates(0, 0, 1.3 * size, 1.3 * size)
-        elif command == "d3data":
-            turtle.setworldcoordinates(0, 0, 1.5 * size, 1.5 * size)
-        else:
-            turtle.setworldcoordinates(0, 0, size, size)
 
     match animation:
         case "instant":
@@ -59,11 +27,33 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
 
     turtle.penup()
     turtle.home()
+    turtle.hideturtle()
 
 
 def draw_shape(draw_function: Callable[..., T], *args: Any, **kwargs: Any) -> T:
     """Invoke a drawing function with given arguments."""
     return draw_function(*args, **kwargs)
+
+
+def fit_canvas_to_points(points: list[tuple[float, float]] | None) -> None:
+    """Resize and center the canvas around the drawn points."""
+    if not points:
+        return
+
+    xs = [x for x, _ in points]
+    ys = [y for _, y in points]
+    min_x, max_x = min(xs), max(xs)
+    min_y, max_y = min(ys), max(ys)
+
+    pad_x = (max_x - min_x) * 0.05 or 10
+    pad_y = (max_y - min_y) * 0.05 or 10
+
+    turtle.setworldcoordinates(
+        min_x - pad_x,
+        min_y - pad_y,
+        max_x + pad_x,
+        max_y + pad_y,
+    )
 
 
 def post_processing(pts: list[tuple[float, float]] | None = None, name: str | None = None) -> None:
@@ -237,6 +227,7 @@ def main() -> int:
 
         output_name = args.output if hasattr(args, "output") else None
         pts = draw_shape(draw_function, **draw_args)
+        fit_canvas_to_points(pts)
 
     elif args.command == "design":
         design_number = args.design_number
@@ -260,6 +251,7 @@ def main() -> int:
 
         output_name = args.output if hasattr(args, "output") else None
         pts = draw_shape(draw_function, **draw_args)
+        fit_canvas_to_points(pts)
     elif args.command == "test":
         animation = args.animation if hasattr(args, "animation") else "instant"
         test_everything(width=width, height=height, animation=animation)
@@ -293,7 +285,8 @@ def test_everything(width: int = 480, height: int = 480, animation: str = "insta
         if "NP" in inspect.signature(draw_function).parameters:
             draw_args["NP"] = size
 
-        draw_shape(draw_function, **draw_args)
+        pts = draw_shape(draw_function, **draw_args)
+        fit_canvas_to_points(pts)
         turtle.update()
 
         time.sleep(0.5)
