@@ -1,4 +1,8 @@
-from cad import capture_points
+try:
+    from cad import capture_points
+except Exception:  # pragma: no cover - CAD optional
+    def capture_points(func):
+        return func
 
 from .curves import (
     draw_orbiting_curves,

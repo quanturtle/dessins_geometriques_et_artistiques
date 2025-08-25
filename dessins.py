@@ -1,15 +1,13 @@
 """Command-line interface for drawing geometric designs using Turtle graphics."""
 
 import argparse
+import importlib
 import inspect
 import math
 import sys
 import turtle
+import time
 from typing import Any, Callable, TypeVar
-
-from cad import generate_cad
-from designs import *
-from shapes import *
 
 T = TypeVar("T")
 
@@ -18,6 +16,7 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
     """Configure the turtle canvas for a given command."""
     size = min(width, height)
     turtle.setup(width=width, height=height)
+    turtle.screensize(width=width, height=height)
 
     if command.startswith("design_"):
         design_num = int(command.split("_")[1])
@@ -31,16 +30,16 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
         elif design_num == 38:
             turtle.setworldcoordinates(-0.5 * size, -0.5 * size, 1.5 * size, 1.5 * size)
         elif design_num in [50, 51, 52, 80, 82, 83, 84, 92, 93, 94, 96, 99, 100]:
-            turtle.setworldcoordinates(0, 0, width, height)
+            turtle.setworldcoordinates(0, 0, size, size)
         elif design_num in [45, 115, 116, 117]:
             turtle.setworldcoordinates(0, 0, 1.1 * size, 1.2 * size)
         elif design_num in [53, 55, 57, 58, 59, 60, 61]:
             turtle.setworldcoordinates(-size, -size, size, size)
         else:
-            turtle.setworldcoordinates(0, 0, width, height)
+            turtle.setworldcoordinates(0, 0, size, size)
     else:
         if command == "dragon":
-            turtle.setworldcoordinates(0, 0, width, height)
+            turtle.setworldcoordinates(0, 0, size, size)
         elif command == "linear_modulo":
             turtle.setworldcoordinates(0, 0, 1.5 * size, 1.5 * size)
         elif command == "simple_fractal":
@@ -48,7 +47,7 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
         elif command == "d3data":
             turtle.setworldcoordinates(0, 0, 1.5 * size, 1.5 * size)
         else:
-            turtle.setworldcoordinates(0, 0, width, height)
+            turtle.setworldcoordinates(0, 0, size, size)
 
     match animation:
         case "instant":
@@ -73,7 +72,12 @@ def post_processing(pts: list[tuple[float, float]] | None = None, name: str | No
     turtle.update()
 
     if pts and name:
-        generate_cad(pts, name)
+        try:
+            from cad import generate_cad
+
+            generate_cad(pts, name)
+        except Exception as exc:  # pragma: no cover - fallback when CAD libs missing
+            print(f"CAD export failed: {exc}")
 
     turtle.exitonclick()
 
@@ -103,20 +107,17 @@ def get_shape_args() -> dict[str, dict[str, Any]]:
 
 def get_available_shapes() -> list[str]:
     """Return a list of available shape names."""
-    shapes: list[str] = []
-    for name in dir(sys.modules["shapes"]):
-        if name.startswith("draw_"):
-            shapes.append(name[5:])
-    return shapes
+    shapes_module = importlib.import_module("shapes")
+    return [name[5:] for name in dir(shapes_module) if name.startswith("draw_")]
 
 
 def get_available_designs() -> list[str]:
     """Return a list of available design numbers."""
+    designs_module = importlib.import_module("designs")
     designs_list: list[str] = []
-    for name in dir(sys.modules["designs"]):
+    for name in dir(designs_module):
         if name.startswith("design_"):
-            design_number = name.split("_")[1]
-            designs_list.append(design_number)
+            designs_list.append(name.split("_")[1])
     return designs_list
 
 
@@ -175,6 +176,13 @@ def initialize_parsers() -> argparse.ArgumentParser:
     design_parser.add_argument("design_number", help="Design number to draw")
     for arg_name, arg_config in common_args.items():
         design_parser.add_argument(arg_name, **arg_config)
+    subparsers.add_parser("help", help="List available shapes and designs")
+
+    test_parser = subparsers.add_parser(
+        "test", help="Draw all designs sequentially with a short pause"
+    )
+    for arg_name, arg_config in common_args.items():
+        test_parser.add_argument(arg_name, **arg_config)
 
     return parser
 
@@ -188,12 +196,21 @@ def main() -> int:
     height = getattr(args, "height", 480)
     size = min(width, height)
 
-    if args.command == "shape":
+    if args.command == "help":
+        print("Available shapes:")
+        for name in sorted(get_available_shapes()):
+            print(f" - {name}")
+        print("\nAvailable designs:")
+        for name in sorted(get_available_designs(), key=int):
+            print(f" - {name}")
+        return 0
+    elif args.command == "shape":
         shape_name = args.shape_name
         draw_function_name = f"draw_{shape_name}"
 
         try:
-            draw_function = getattr(sys.modules["shapes"], draw_function_name)
+            shapes_module = importlib.import_module("shapes")
+            draw_function = getattr(shapes_module, draw_function_name)
             command = shape_name
         except AttributeError:
             print(f"Error: Shape '{shape_name}' not found in shapes module.")
@@ -220,7 +237,8 @@ def main() -> int:
         draw_function_name = f"design_{design_number}"
 
         try:
-            draw_function = getattr(sys.modules["designs"], draw_function_name)
+            designs_module = importlib.import_module("designs")
+            draw_function = getattr(designs_module, draw_function_name)
             command = draw_function_name
         except AttributeError:
             print(f"Error: Design '{design_number}' not found in designs module.")
@@ -236,7 +254,10 @@ def main() -> int:
 
         output_name = args.output if hasattr(args, "output") else None
         pts = draw_shape(draw_function, **draw_args)
-
+    elif args.command == "test":
+        animation = args.animation if hasattr(args, "animation") else "instant"
+        test_everything(width=width, height=height, animation=animation)
+        pts = None
     else:
         print(f"Error: Unknown command '{args.command}'.")
         return 1
@@ -250,13 +271,15 @@ def test_everything(width: int = 480, height: int = 480, animation: str = "insta
 
     Each batch renders 16 designs on the same canvas one after another,
     resetting the canvas after every group to keep resources in check.
+    A 0.5-second pause is added between designs so each is visible.
     """
     design_numbers = sorted(int(n) for n in get_available_designs())
     size = min(width, height)
 
     for index, num in enumerate(design_numbers, start=1):
         command = f"design_{num}"
-        draw_function = getattr(sys.modules["designs"], command)
+        designs_module = importlib.import_module("designs")
+        draw_function = getattr(designs_module, command)
 
         setup_canvas(command, width, height, animation)
 
@@ -266,6 +289,8 @@ def test_everything(width: int = 480, height: int = 480, animation: str = "insta
 
         draw_shape(draw_function, **draw_args)
         turtle.update()
+
+        time.sleep(0.5)
 
         # Reset after each design to avoid overlap
         turtle.reset()
