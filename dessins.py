@@ -5,7 +5,7 @@ import inspect
 import math
 import sys
 import turtle
-from typing import Any, Callable, Optional, TypeVar
+from typing import Any, Callable, TypeVar
 
 from cad import generate_cad
 from designs import *
@@ -16,7 +16,6 @@ T = TypeVar("T")
 
 def setup_canvas(command: str, width: int, height: int, animation: str = "instant") -> None:
     """Configure the turtle canvas for a given command."""
-
     size = min(width, height)
     turtle.setup(width=width, height=height)
 
@@ -39,7 +38,6 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
             turtle.setworldcoordinates(-size, -size, size, size)
         else:
             turtle.setworldcoordinates(0, 0, width, height)
-
     else:
         if command == "dragon":
             turtle.setworldcoordinates(0, 0, width, height)
@@ -66,13 +64,11 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
 
 def draw_shape(draw_function: Callable[..., T], *args: Any, **kwargs: Any) -> T:
     """Invoke a drawing function with given arguments."""
-
     return draw_function(*args, **kwargs)
 
 
-def post_processing(pts: Optional[list[tuple[float, float]]] = None, name: Optional[str] = None) -> None:
+def post_processing(pts: list[tuple[float, float]] | None = None, name: str | None = None) -> None:
     """Finalize drawing and optionally export CAD data."""
-
     turtle.hideturtle()
     turtle.update()
 
@@ -84,7 +80,6 @@ def post_processing(pts: Optional[list[tuple[float, float]]] = None, name: Optio
 
 def get_shape_args() -> dict[str, dict[str, Any]]:
     """Provide CLI argument specifications for available shapes."""
-
     return {
         "regular_polygon": {
             "help": "Draw a regular polygon.",
@@ -108,18 +103,16 @@ def get_shape_args() -> dict[str, dict[str, Any]]:
 
 def get_available_shapes() -> list[str]:
     """Return a list of available shape names."""
-
-    shapes = []
+    shapes: list[str] = []
     for name in dir(sys.modules["shapes"]):
         if name.startswith("draw_"):
-            shapes.append(name[5:])  # Remove 'draw_' prefix
+            shapes.append(name[5:])
     return shapes
 
 
 def get_available_designs() -> list[str]:
     """Return a list of available design numbers."""
-
-    designs_list = []
+    designs_list: list[str] = []
     for name in dir(sys.modules["designs"]):
         if name.startswith("design_"):
             design_number = name.split("_")[1]
@@ -129,7 +122,6 @@ def get_available_designs() -> list[str]:
 
 def initialize_parsers() -> argparse.ArgumentParser:
     """Create the command-line argument parser."""
-
     parser = argparse.ArgumentParser(description="Draw shapes and designs using Turtle graphics.")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -170,21 +162,17 @@ def initialize_parsers() -> argparse.ArgumentParser:
         if shape_name in shape_args:
             shape_config = shape_args[shape_name]
             subparser = shape_subparsers.add_parser(shape_name, help=shape_config["help"])
-
             for arg_name, arg_config in shape_config["args"].items():
                 subparser.add_argument(arg_name, **arg_config)
-
             for arg_name, arg_config in common_args.items():
                 subparser.add_argument(arg_name, **arg_config)
         else:
             subparser = shape_subparsers.add_parser(shape_name, help=f"Draw a {shape_name}")
-
             for arg_name, arg_config in common_args.items():
                 subparser.add_argument(arg_name, **arg_config)
 
     design_parser = subparsers.add_parser("design", help="Draw predefined designs")
     design_parser.add_argument("design_number", help="Design number to draw")
-
     for arg_name, arg_config in common_args.items():
         design_parser.add_argument(arg_name, **arg_config)
 
@@ -193,7 +181,6 @@ def initialize_parsers() -> argparse.ArgumentParser:
 
 def main() -> int:
     """Program entry point."""
-
     parser = initialize_parsers()
     args = parser.parse_args()
 
@@ -242,7 +229,7 @@ def main() -> int:
         animation = args.animation if hasattr(args, "animation") else "instant"
         setup_canvas(command, width, height, animation)
 
-        draw_args = {}
+        draw_args: dict[str, Any] = {}
         sig = inspect.signature(draw_function)
         if "NP" in sig.parameters:
             draw_args["NP"] = size
@@ -264,7 +251,6 @@ def test_everything(width: int = 480, height: int = 480, animation: str = "insta
     Each batch renders 16 designs on the same canvas one after another,
     resetting the canvas after every group to keep resources in check.
     """
-
     design_numbers = sorted(int(n) for n in get_available_designs())
     size = min(width, height)
 
@@ -293,4 +279,3 @@ def test_everything(width: int = 480, height: int = 480, animation: str = "insta
 
 if __name__ == "__main__":
     sys.exit(main())
-
