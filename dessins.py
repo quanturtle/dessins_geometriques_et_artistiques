@@ -27,6 +27,7 @@ def setup_canvas(command: str, width: int, height: int, animation: str = "instan
 
     turtle.penup()
     turtle.home()
+    turtle.pendown()
     turtle.hideturtle()
 
 
@@ -36,14 +37,30 @@ def draw_shape(draw_function: Callable[..., T], *args: Any, **kwargs: Any) -> T:
 
 
 def fit_canvas_to_points(points: list[tuple[float, float]] | None) -> None:
-    """Resize and center the canvas around the drawn points."""
-    if not points:
-        return
+    """Resize and center the canvas around the drawn points.
 
-    xs = [x for x, _ in points]
-    ys = [y for _, y in points]
-    min_x, max_x = min(xs), max(xs)
-    min_y, max_y = min(ys), max(ys)
+    If ``points`` is ``None`` the bounding box is derived from the Tkinter
+    canvas, allowing shapes that don't return point lists to be fitted.
+    """
+
+    if points:
+        xs = [x for x, _ in points]
+        ys = [y for _, y in points]
+        min_x, max_x = min(xs), max(xs)
+        min_y, max_y = min(ys), max(ys)
+    else:
+        canvas = turtle.getcanvas()
+        bbox = canvas.bbox("all")
+        if not bbox:
+            return
+        min_cx, min_cy, max_cx, max_cy = bbox
+
+        width = turtle.window_width()
+        height = turtle.window_height()
+        min_x = min_cx - width / 2
+        max_x = max_cx - width / 2
+        min_y = height / 2 - max_cy
+        max_y = height / 2 - min_cy
 
     pad_x = (max_x - min_x) * 0.05 or 10
     pad_y = (max_y - min_y) * 0.05 or 10
@@ -212,6 +229,8 @@ def main() -> int:
     """Program entry point."""
     args_list = sys.argv[1:]
     available_shapes = set(get_available_shapes())
+    output_name: str | None = None
+    pts: list[tuple[float, float]] | None = None
 
     if args_list:
         if args_list[0] == "shape":
@@ -275,6 +294,7 @@ def main() -> int:
         output_name = args.output if hasattr(args, "output") else None
         pts = draw_shape(draw_function, **draw_args)
         fit_canvas_to_points(pts)
+        turtle.update()
 
     elif args.command == "design":
         design_number = args.design_number
@@ -299,10 +319,11 @@ def main() -> int:
         output_name = args.output if hasattr(args, "output") else None
         pts = draw_shape(draw_function, **draw_args)
         fit_canvas_to_points(pts)
+        turtle.update()
     elif args.command == "test":
         animation = args.animation if hasattr(args, "animation") else "instant"
         test_everything(width=width, height=height, animation=animation)
-        pts = None
+        return 0
     else:
         print(f"Error: Unknown command '{args.command}'.")
         return 1
@@ -340,6 +361,7 @@ def test_everything(width: int = 480, height: int = 480, animation: str = "insta
 
         # Reset after each design to avoid overlap
         turtle.reset()
+        turtle.hideturtle()
 
         # Every 16 designs, clear the screen completely
         if index % 16 == 0:
