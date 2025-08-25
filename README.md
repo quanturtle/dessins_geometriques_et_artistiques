@@ -82,11 +82,36 @@ uv run python dessins.py dragon
 ## Usage
 Basic usage:
 ```sh
-python dessins.py <command> <shape_name|design_number>
+python dessins.py <command> [<shape_name|design_number>]
 ```
-where `command` is `shape|design`. After that, the user provides a `shape_name` (if `shape` was selected). If `design` was provided by the user, the `design_number` needs to be selected.
-This will run the standard program from the book.
+where `command` is `shape`, `design`, `help`, or `test`.
+
+* `shape` – draw a specific shape. Provide a `shape_name`.
+* `design` – draw a design from the book. Provide a `design_number`.
+* `help` – list available commands, shapes, and designs.
+* `test` – render designs in 4×4 batches with a 0.5-second pause between drawings.
+
 The plotting window `NP` is generally set at `480`.
+
+List all available commands, shapes, and designs:
+```sh
+python dessins.py help
+```
+
+List all available shapes:
+```sh
+python dessins.py shape help
+```
+
+See parameters for a specific shape:
+```sh
+python dessins.py <shape_name> help
+```
+
+Run every design in 4×4 batches:
+```sh
+python dessins.py test
+```
 
 Generate a shape:
 ```sh
