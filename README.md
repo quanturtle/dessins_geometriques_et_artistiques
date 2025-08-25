@@ -98,6 +98,16 @@ List all available commands, shapes, and designs:
 python dessins.py help
 ```
 
+List all available shapes:
+```sh
+python dessins.py shape help
+```
+
+See parameters for a specific shape:
+```sh
+python dessins.py <shape_name> help
+```
+
 Run every design sequentially:
 ```sh
 python dessins.py test

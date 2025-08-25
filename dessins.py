@@ -111,6 +111,37 @@ def get_available_designs() -> list[str]:
     return designs_list
 
 
+def print_shape_help(shape_name: str) -> None:
+    """Display available parameters for a given shape."""
+    shapes_module = importlib.import_module("shapes")
+    func_name = f"draw_{shape_name}"
+    try:
+        draw_func = getattr(shapes_module, func_name)
+    except AttributeError:
+        print(f"Error: Shape '{shape_name}' not found.")
+        return
+
+    sig = inspect.signature(draw_func)
+    doc = inspect.getdoc(draw_func) or ""
+
+    print(f"Parameters for shape '{shape_name}':")
+    if doc:
+        print(doc)
+
+    if not sig.parameters:
+        print("  (no parameters)")
+        return
+
+    for name, param in sig.parameters.items():
+        if param.kind in {inspect.Parameter.VAR_POSITIONAL, inspect.Parameter.VAR_KEYWORD}:
+            continue
+        if param.default is inspect._empty:
+            default = "required"
+        else:
+            default = f"default={param.default!r}"
+        print(f"  {name}: {default}")
+
+
 def initialize_parsers() -> argparse.ArgumentParser:
     """Create the command-line argument parser."""
     parser = argparse.ArgumentParser(description="Draw shapes and designs using Turtle graphics.")
@@ -179,6 +210,23 @@ def initialize_parsers() -> argparse.ArgumentParser:
 
 def main() -> int:
     """Program entry point."""
+    args_list = sys.argv[1:]
+    available_shapes = set(get_available_shapes())
+
+    if args_list:
+        if args_list[0] == "shape":
+            if len(args_list) == 1 or args_list[1] == "help":
+                print("Available shapes:")
+                for name in sorted(available_shapes):
+                    print(f" - {name}")
+                return 0
+            if args_list[-1] == "help" and args_list[1] in available_shapes:
+                print_shape_help(args_list[1])
+                return 0
+        elif args_list[-1] == "help" and args_list[0] in available_shapes:
+            print_shape_help(args_list[0])
+            return 0
+
     parser = initialize_parsers()
     args = parser.parse_args()
 
@@ -196,9 +244,8 @@ def main() -> int:
         print("Available shapes:")
         for name in sorted(get_available_shapes()):
             print(f" - {name}")
-        print("\nAvailable designs:")
-        for name in sorted(get_available_designs(), key=int):
-            print(f" - {name}")
+        designs = get_available_designs()
+        print(f"\nAvailable designs: 1 to {len(designs)}")
         return 0
     elif args.command == "shape":
         shape_name = args.shape_name
