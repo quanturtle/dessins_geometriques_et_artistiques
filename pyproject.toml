@@ -1,7 +1,10 @@
 [project]
 name = "dessins-geometriques-et-artistiques"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python recreation of the designs from 'Dessins géométriques et artistiques avec votre micro-ordinateur' (1985), with turtle rendering and STL export"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = ["build123d==0.9.1"]
+
+[tool.uv]
+required-environments = ["sys_platform == 'darwin' and platform_machine == 'arm64'"]
