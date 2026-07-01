@@ -20,63 +20,63 @@ The precision required to create these designs amazes me, and I wanted to take i
 | ![8-point star Turtle](/img/star8_turtle.png) | ![8-point star CAD](/img/star8_cad.png) | ![8-point star slicer](/img/star8_slicer.png) | ![8-point star printing](/img/star8_printing.png) | ![8-point star printed](/img/star8_printed.png) |
 
 ## Index
-1. [Polygones, étoiles, etc.](./shapes/polygons_stars/)
-   * [Le programme POLYGONES RÉGULIERS](./shapes/polygons_stars/regular_polygon.py)
-    * [Le programme ÉTOILES RÉGULIÈRES](./shapes/polygons_stars/regular_star.py)
-    * [Le programme COMPOSITION 1](./shapes/polygons_stars/composition_1.py)
-    * [Le programme COMPOSITION 2](./shapes/polygons_stars/composition_2.py)
-    * [Le programme JOLIGONES](./shapes/polygons_stars/prettygon.py)
+1. Polygones, étoiles, etc. (designs 1-33, [designs/polygons_stars.py](./designs/polygons_stars.py))
+    * [Le programme POLYGONES RÉGULIERS](./shapes/regular_polygon.py)
+    * [Le programme ÉTOILES RÉGULIÈRES](./shapes/regular_star.py)
+    * [Le programme COMPOSITION 1](./shapes/composition_1.py)
+    * [Le programme COMPOSITION 2](./shapes/composition_2.py)
+    * [Le programme JOLIGONES](./shapes/prettygon.py)
 
-2. [Dessins à partir de données](./shapes/designs_from_data/)
-    * [Le programme CHEVAL](./shapes/designs_from_data/horse.py)
-    * Les programmes [LION](./shapes/designs_from_data/lion.py), [OISEAUX-POISSONS](./shapes/designs_from_data/bird_fish.py), [SMURF](./shapes/designs_from_data/smurf.py)
+2. Dessins à partir de données (designs 34-49, [designs/designs_from_data.py](./designs/designs_from_data.py))
+    * [Le programme CHEVAL](./shapes/horse.py)
+    * Les programmes [LION](./shapes/lion.py), [OISEAUX-POISSONS](./shapes/bird_fish.py), [SMURF](./shapes/smurf.py)
 
-3. [Dragons de papiers pliés](./shapes/folding_paper_dragons/)
-   * [Le programme DRAGONS](./shapes/folding_paper_dragons/dragon.py)
+3. Dragons de papiers pliés (designs 50-64, [designs/folding_paper_dragons.py](./designs/folding_paper_dragons.py))
+    * [Le programme DRAGONS](./shapes/dragon.py)
 
-4. [Étoiles fractales](./shapes/fractal_stars/)
-   * [Le programme ÉTOILES FRACTALES](./shapes/fractal_stars/fractal_star.py)
+4. Étoiles fractales (designs 65-77, [designs/fractal_stars.py](./designs/fractal_stars.py))
+    * [Le programme ÉTOILES FRACTALES](./shapes/fractal_star.py)
 
-5. [Courbes](./shapes/curves/)
-    * [Le programme COURBES ORBITALES](./shapes/curves/orbiting_curves.py)
-    * [Le programme COURBES TOURNANTES](./shapes/curves/rotating_curves.py)
-    * [Le programme COURBES SPIRALES](./shapes/curves/spiraling_curves.py)
+5. Courbes (designs 78-100, [designs/curves.py](./designs/curves.py))
+    * [Le programme COURBES ORBITALES](./shapes/orbiting_curves.py)
+    * [Le programme COURBES TOURNANTES](./shapes/rotating_curves.py)
+    * [Le programme COURBES SPIRALES](./shapes/spiraling_curves.py)
 
-6. [Dessins linéaires](./shapes/linear_designs/)
-    * [Le programme BIPARTI COMPLET](./shapes/linear_designs/complete_bipartite_graph.py)
-    * [Le programme LINÉAIRES MODULO](./shapes/linear_designs/linear_modulo.py)
-    * [Le programme LINÉAIRES BÂTONS](./shapes/linear_designs/linear_sticks.py)
+6. Dessins linéaires (designs 101-114, [designs/linear_designs.py](./designs/linear_designs.py))
+    * [Le programme BIPARTI COMPLET](./shapes/complete_bipartite_graph.py)
+    * [Le programme LINÉAIRES MODULO](./shapes/linear_modulo.py)
+    * [Le programme LINÉAIRES BÂTONS](./shapes/linear_sticks.py)
 
-7. [Fractales simples](./shapes/simple_fractals/)
-    * [Le programme FRACTALES SIMPLES](./shapes/simple_fractals/simple_fractal.py)
-    * [Le programme FRACTALES SIMPLES ARRONDIES](./shapes/simple_fractals/simple_fractal_rounded.py)
-    * [Le programme FRACTALES SIMPLES DÉFORMÉES](./shapes/simple_fractals/simple_fractal_deformed.py)
+7. Fractales simples (designs 115-163, [designs/simple_fractals.py](./designs/simple_fractals.py))
+    * [Le programme FRACTALES SIMPLES](./shapes/simple_fractal.py)
+    * [Le programme FRACTALES SIMPLES ARRONDIES](./shapes/simple_fractal_rounded.py)
+    * [Le programme FRACTALES SIMPLES DÉFORMÉES](./shapes/simple_fractal_deformed.py)
 
-8. [Quadrillages élastiques](./shapes/elastic_grids/)
-   * [Le programme QUADRILLAGES ÉLASTIQUES](./shapes/elastic_grids/elastic_grid.py)
+8. Quadrillages élastiques (designs 164-176, [designs/elastic_grids.py](./designs/elastic_grids.py))
+    * [Le programme QUADRILLAGES ÉLASTIQUES](./shapes/elastic_grid.py)
 
-9. [Surfaces](./shapes/surfaces/)
-   * [Le programme SURFACES](./shapes/surfaces/surface.py)
+9. Surfaces (designs 177-200, [designs/surfaces.py](./designs/surfaces.py))
+    * [Le programme SURFACES](./shapes/surface.py)
 
-10. [La troisième dimension](./shapes/third_dimension/)
-    * [Le programme D3DATA](./shapes/third_dimension/d3data.py)
-    * [Le programme D3CUBE](./shapes/third_dimension/d3cube.py)
-    * [Le programme D3STRUCTURES](./shapes/third_dimension/d3structures.py)
+10. La troisième dimension (designs 201-252, [designs/third_dimension.py](./designs/third_dimension.py))
+    * [Le programme D3DATA](./shapes/d3data.py)
+    * [Le programme D3CUBE](./shapes/d3cube.py)
+    * [Le programme D3STRUCTURES](./shapes/d3structures.py)
 
 ## Program structure
-* `shapes`: contains the original programs
-* `designs`: designs using the original programs with modified arguments
-* `cad`: pipeline to generate a CAD design that can be 3D printed
+* `shapes/`: the original programs, one module per program; `shapes.SHAPES` maps each shape name to its draw function
+* `designs/`: the catalog of numbered designs, one module per book chapter; each entry in `designs.DESIGNS` records the draw function, its parameters, and its canvas window
+* `cad/`: pipeline to generate a CAD design that can be 3D printed (STL files land in `output/`)
+* `dessins.py`: the command-line interface
 
 ## Installation
 Install using `uv`:
 ```sh
-uv init
-uv sync # or uv pip install -r requirements.txt
+uv sync
 ```
 Test everything is working:
 ```sh
-uv run python dessins.py dragon
+uv run python dessins.py shape dragon
 ```
 
 ## Usage
@@ -90,13 +90,13 @@ The plotting window `NP` is generally set at `480`.
 
 Generate a shape:
 ```sh
-python dessins.py shape <kwargs> --animate instant --output my_design
+python dessins.py shape <shape_name> <kwargs> --animation instant --output my_design
 ```
 ```sh
---animate: str                      -default: instant, choices=[fast, fastest, instant]
---output:  Optional[str] = None     -default: None (no .stl output)
+--animation: str                    -default: instant, choices=[fast, fastest, instant]
+--output:    Optional[str] = None   -default: None (no .stl output; files land in output/)
 ```
-Each shape has `kwargs` that need to be passed or it will default to the original program's arguments.
+Each shape exposes its numeric parameters as flags (see `python dessins.py shape <shape_name> --help`); anything not passed defaults to the original program's arguments.
 
 Examples:
 ```sh
@@ -140,7 +140,7 @@ orbiting_curves
 rotating_curves
 spiraling_curves
 
-bipartite_graph
+complete_bipartite_graph
 
 linear_modulo
 linear_sticks

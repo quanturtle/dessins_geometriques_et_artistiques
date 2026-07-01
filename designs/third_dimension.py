@@ -1,0 +1,63 @@
+"""Third-dimension designs (designs 201-252) from the book."""
+
+from shapes import draw_d3cube, draw_d3data, draw_d3structures
+
+from .spec import Design
+
+DESIGNS: dict[int, Design] = {
+    # TODO: designs 201-206 still use the default d3data parameters
+    201: Design(draw=draw_d3data),
+    202: Design(draw=draw_d3data),
+    203: Design(draw=draw_d3data),
+    204: Design(draw=draw_d3data),
+    205: Design(draw=draw_d3data),
+    206: Design(draw=draw_d3data),
+    # TODO: designs 207-220 still use the default d3cube parameters
+    207: Design(draw=draw_d3cube),
+    208: Design(draw=draw_d3cube),
+    209: Design(draw=draw_d3cube),
+    210: Design(draw=draw_d3cube),
+    211: Design(draw=draw_d3cube),
+    212: Design(draw=draw_d3cube),
+    213: Design(draw=draw_d3cube),
+    214: Design(draw=draw_d3cube),
+    215: Design(draw=draw_d3cube),
+    216: Design(draw=draw_d3cube),
+    217: Design(draw=draw_d3cube),
+    218: Design(draw=draw_d3cube),
+    219: Design(draw=draw_d3cube),
+    220: Design(draw=draw_d3cube),
+    # TODO: designs 221-252 still use the default d3structures parameters
+    221: Design(draw=draw_d3structures),
+    222: Design(draw=draw_d3structures),
+    223: Design(draw=draw_d3structures),
+    224: Design(draw=draw_d3structures),
+    225: Design(draw=draw_d3structures),
+    226: Design(draw=draw_d3structures),
+    227: Design(draw=draw_d3structures),
+    228: Design(draw=draw_d3structures),
+    229: Design(draw=draw_d3structures),
+    230: Design(draw=draw_d3structures),
+    231: Design(draw=draw_d3structures),
+    232: Design(draw=draw_d3structures),
+    233: Design(draw=draw_d3structures),
+    234: Design(draw=draw_d3structures),
+    235: Design(draw=draw_d3structures),
+    236: Design(draw=draw_d3structures),
+    237: Design(draw=draw_d3structures),
+    238: Design(draw=draw_d3structures),
+    239: Design(draw=draw_d3structures),
+    240: Design(draw=draw_d3structures),
+    241: Design(draw=draw_d3structures),
+    242: Design(draw=draw_d3structures),
+    243: Design(draw=draw_d3structures),
+    244: Design(draw=draw_d3structures),
+    245: Design(draw=draw_d3structures),
+    246: Design(draw=draw_d3structures),
+    247: Design(draw=draw_d3structures),
+    248: Design(draw=draw_d3structures),
+    249: Design(draw=draw_d3structures),
+    250: Design(draw=draw_d3structures),
+    251: Design(draw=draw_d3structures),
+    252: Design(draw=draw_d3structures),
+}
