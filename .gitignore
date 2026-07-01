@@ -1,4 +1,8 @@
 .DS_Store
+
+# Generated CAD output
+output/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
